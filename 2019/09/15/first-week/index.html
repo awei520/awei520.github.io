@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="201909091.构造函数创建对象1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;script&amp;gt;    function Person(name,age)&amp;#123;        //name 字符串类型        this.name = na">
+<meta property="og:type" content="article">
+<meta property="og:title" content="first-week">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/first-week/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="201909091.构造函数创建对象1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;script&amp;gt;    function Person(name,age)&amp;#123;        //name 字符串类型        this.name = na">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-16T00:47:16.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="first-week">
+<meta name="twitter:description" content="201909091.构造函数创建对象1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;script&amp;gt;    function Person(name,age)&amp;#123;        //name 字符串类型        this.name = na">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/15/first-week/">
 
 
 
 
 
-  <title>Hexo</title>
+  <title>first-week | Hexo</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/15/first-week/" itemprop="url">first-week</a></h1>
+          <h1 class="post-title" itemprop="name headline">first-week</h1>
         
 
         <div class="post-meta">
@@ -298,9 +299,7 @@
       
 
       
-        
-          
-            <h1 id="20190909"><a href="#20190909" class="headerlink" title="20190909"></a>20190909</h1><h2 id="1-构造函数创建对象"><a href="#1-构造函数创建对象" class="headerlink" title="1.构造函数创建对象"></a>1.构造函数创建对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    function Person(name,age)&#123;</span><br><span class="line">        //name 字符串类型</span><br><span class="line">        this.name = name;</span><br><span class="line">        //age number类型</span><br><span class="line">        this.age = age;</span><br><span class="line">        //say function类型(引用类型)</span><br><span class="line">        this.say = function()&#123;</span><br><span class="line">            console.log(&quot;123&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //1.构造函数的函数名的首字母大写</span><br><span class="line">    //2.构造函数中可以使用this  this就代表当前对象</span><br><span class="line">    //3.构造函数可以new </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var p1 = new Person(&quot;张三&quot;,12);</span><br><span class="line">var p2 = new Person(&quot;张三&quot;,&quot;12&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//通过构造函数创建对象可以判断对象的具体类型</span><br><span class="line">//如何判断对象的具体类型呢？</span><br><span class="line">console.log(typeof(p1));  //--&gt; object  </span><br><span class="line">//我们发现通过typeof(p1) 的时候，结果仍然是object，所以通过typeof无法判断对象的具体类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//instanceof 查看对象否是指定类型的对象，如果是返回true；如果不是返回false</span><br><span class="line">console.log(p1 instanceof Person);</span><br><span class="line">//看p1的构造器是否是Person，如果p1的构造器是Person的话，说明P1是Person类型的对象</span><br><span class="line">console.log(p1.constructor == Person);</span><br><span class="line"></span><br><span class="line">//在面向对象的编程中，万物都是东西</span><br><span class="line">console.log(p1 instanceof Object);  //因为任何对象最终都是Object  true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(&quot;-------------------------------&quot;);</span><br><span class="line">console.log(p1.name == p2.name);  //true</span><br><span class="line">console.log(p1.age == p2.age);    //true</span><br><span class="line">console.log(p1.say == p2.say);    //false</span><br><span class="line"></span><br><span class="line">//双等号的含义：</span><br><span class="line">//1.对于基本数据类型而言，双等号比较的是值是否相等</span><br><span class="line">//2.对于引用类型而言，双等号比较的是内存地址是否一致</span><br><span class="line"></span><br><span class="line">//三等号的函数：比较的是值和类型是否都一致</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="20190909"><a href="#20190909" class="headerlink" title="20190909"></a>20190909</h1><h2 id="1-构造函数创建对象"><a href="#1-构造函数创建对象" class="headerlink" title="1.构造函数创建对象"></a>1.构造函数创建对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    function Person(name,age)&#123;</span><br><span class="line">        //name 字符串类型</span><br><span class="line">        this.name = name;</span><br><span class="line">        //age number类型</span><br><span class="line">        this.age = age;</span><br><span class="line">        //say function类型(引用类型)</span><br><span class="line">        this.say = function()&#123;</span><br><span class="line">            console.log(&quot;123&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //1.构造函数的函数名的首字母大写</span><br><span class="line">    //2.构造函数中可以使用this  this就代表当前对象</span><br><span class="line">    //3.构造函数可以new </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var p1 = new Person(&quot;张三&quot;,12);</span><br><span class="line">var p2 = new Person(&quot;张三&quot;,&quot;12&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//通过构造函数创建对象可以判断对象的具体类型</span><br><span class="line">//如何判断对象的具体类型呢？</span><br><span class="line">console.log(typeof(p1));  //--&gt; object  </span><br><span class="line">//我们发现通过typeof(p1) 的时候，结果仍然是object，所以通过typeof无法判断对象的具体类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//instanceof 查看对象否是指定类型的对象，如果是返回true；如果不是返回false</span><br><span class="line">console.log(p1 instanceof Person);</span><br><span class="line">//看p1的构造器是否是Person，如果p1的构造器是Person的话，说明P1是Person类型的对象</span><br><span class="line">console.log(p1.constructor == Person);</span><br><span class="line"></span><br><span class="line">//在面向对象的编程中，万物都是东西</span><br><span class="line">console.log(p1 instanceof Object);  //因为任何对象最终都是Object  true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(&quot;-------------------------------&quot;);</span><br><span class="line">console.log(p1.name == p2.name);  //true</span><br><span class="line">console.log(p1.age == p2.age);    //true</span><br><span class="line">console.log(p1.say == p2.say);    //false</span><br><span class="line"></span><br><span class="line">//双等号的含义：</span><br><span class="line">//1.对于基本数据类型而言，双等号比较的是值是否相等</span><br><span class="line">//2.对于引用类型而言，双等号比较的是内存地址是否一致</span><br><span class="line"></span><br><span class="line">//三等号的函数：比较的是值和类型是否都一致</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-prototype介绍"><a href="#2-prototype介绍" class="headerlink" title="2.prototype介绍"></a>2.prototype介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    function Person(name,age)&#123;</span><br><span class="line">        //实例属性</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">        //实例方法</span><br><span class="line">        this.eat = function()&#123;</span><br><span class="line">            console.log(&quot;吃饭&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //原型方法</span><br><span class="line">    Person.prototype.say = function()&#123;</span><br><span class="line">        //看this是谁只要看调用者是谁</span><br><span class="line">        console.log(this.name+&quot;在说话&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //原型属性  不是实例属性，他是原型属性</span><br><span class="line">    Person.prototype.countory = &quot;中国&quot;</span><br><span class="line">    Person.prototype.name = &quot;kk&quot;;</span><br><span class="line"></span><br><span class="line">    var p1 = new Person(&quot;张三&quot;,123);</span><br><span class="line">    var p2 = new Person(&quot;张三&quot;,123);</span><br><span class="line"></span><br><span class="line">    console.log(p1.say == p2.say);  //true  因为现在的say方法来自于prototype中</span><br><span class="line"></span><br><span class="line">    //countory不是p1自己，是函数原型的信息，所以countory不是实例属性，是原型属性</span><br><span class="line">    console.log(p1.countory);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // p1.say();                 打印结果是： 张三在说话</span><br><span class="line">    // Person.prototype.say();   打印结果是 ： kk在说话</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //有些时候我们期望所有构造函数的对象能够共享一些信息，此时我们可以使用prototype</span><br><span class="line"></span><br><span class="line">    //prototype的第一个作用：可以存放构造函数的所有实例共享的信息</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">//现在有一个对象，他的变量名是zhouqi</span><br><span class="line">var zhouqi = &#123;</span><br><span class="line">   name:&quot;zhouqi&quot;,</span><br><span class="line">   age:18,</span><br><span class="line">   song:function()&#123;</span><br><span class="line">       console.log(this.name+&quot;唱歌&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//给对象新增一个属性叫duiyou</span><br><span class="line">zhouqi.duiyou = &quot;蔡徐坤&quot;</span><br><span class="line"></span><br><span class="line">//给对象新增一个方法</span><br><span class="line">zhouqi.jump = function()&#123;</span><br><span class="line">    console.log(this.name+&quot;在跳&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//怎么让zhouqi唱歌</span><br><span class="line">//对象.song()   对象调用song()方法  如果是方法调用需要加小括号</span><br><span class="line">zhouqi.song();</span><br><span class="line">zhouqi.jump();</span><br><span class="line"></span><br><span class="line">console.log(zhouqi.age);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -357,8 +356,6 @@
 <h2 id="7-使用闭包点赞"><a href="#7-使用闭包点赞" class="headerlink" title="7.使用闭包点赞"></a>7.使用闭包点赞</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;common.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style-type: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        li &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            margin-left: 10px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        img &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 180px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        input &#123;</span><br><span class="line">            margin-left: 30%;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;&lt;br/&gt;&lt;input type=&quot;button&quot; value=&quot;赞(1)&quot;&gt;             &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;&lt;br/&gt;&lt;input type=&quot;button&quot; value=&quot;赞(1)&quot;&gt;             &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;img src=&quot;images/4.jpg&quot; alt=&quot;&quot;&gt;&lt;br/&gt;&lt;input type=&quot;button&quot; value=&quot;赞(1)&quot;&gt;             &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;img src=&quot;images/5.jpeg&quot; alt=&quot;&quot;&gt;&lt;br/&gt;&lt;input type=&quot;button&quot; value=&quot;赞(1)&quot;&gt;           &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    //1.找到所有的按钮</span><br><span class="line">    var buttons = document.getElementsByTagName(&quot;input&quot;);</span><br><span class="line">    //2.给每一个按钮绑定点击事件</span><br><span class="line">    for(var i=0;i&lt;buttons.length;i++)&#123;</span><br><span class="line">        //给每一个button绑定一个aa属性</span><br><span class="line">        buttons[i].aa = getValue();</span><br><span class="line">        buttons[i].onclick = function()&#123;</span><br><span class="line">        this.value = this.aa();</span><br><span class="line">        // this.value=getValue()();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // buttons[i].sort();</span><br><span class="line">    &#125;</span><br><span class="line">    //3.先给一个函数，函数功能就是生成value属性值</span><br><span class="line">    function getValue()&#123;</span><br><span class="line">        var num = 1;</span><br><span class="line">        return function()&#123;</span><br><span class="line">            num ++;</span><br><span class="line">            return &quot;赞(&quot;+num+&quot;)&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 
-          
-        
       
     </div>
     
@@ -375,12 +372,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -390,10 +387,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -401,6 +399,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -421,8 +423,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,6 +475,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#20190909"><span class="nav-number">1.</span> <span class="nav-text">20190909</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-构造函数创建对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.构造函数创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-prototype介绍"><span class="nav-number">1.2.</span> <span class="nav-text">2.prototype介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-通过prototype共享属性与方法"><span class="nav-number">1.3.</span> <span class="nav-text">3.通过prototype共享属性与方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型的用途"><span class="nav-number">1.4.</span> <span class="nav-text">4.原型的用途</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20190910"><span class="nav-number">2.</span> <span class="nav-text">20190910</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-自调用函数"><span class="nav-number">2.1.</span> <span class="nav-text">1.自调用函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-自调用函数的全局"><span class="nav-number">2.2.</span> <span class="nav-text">2.自调用函数的全局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-封装Random"><span class="nav-number">2.3.</span> <span class="nav-text">3.封装Random</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-获取的几种宽度及获取行内样式和非行内样式"><span class="nav-number">2.4.</span> <span class="nav-text">4.获取的几种宽度及获取行内样式和非行内样式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20190911"><span class="nav-number">3.</span> <span class="nav-text">20190911</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-js继承-原型继承"><span class="nav-number">3.1.</span> <span class="nav-text">1.js继承-原型继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-构造函数的属性继承"><span class="nav-number">3.2.</span> <span class="nav-text">2.构造函数的属性继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-组合继承"><span class="nav-number">3.3.</span> <span class="nav-text">3.组合继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-逆推看继承"><span class="nav-number">3.4.</span> <span class="nav-text">4.逆推看继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-成员的搜索规则"><span class="nav-number">3.5.</span> <span class="nav-text">5.成员的搜索规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-命名函数和匿名函数的区别"><span class="nav-number">3.6.</span> <span class="nav-text">6.命名函数和匿名函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-new-Function"><span class="nav-number">3.7.</span> <span class="nav-text">7.new Function()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-call、bind、apply"><span class="nav-number">3.8.</span> <span class="nav-text">8.call、bind、apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-bind案例"><span class="nav-number">3.9.</span> <span class="nav-text">9.bind案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-数组中存放函数"><span class="nav-number">3.10.</span> <span class="nav-text">10.数组中存放函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-函数其他成员"><span class="nav-number">3.11.</span> <span class="nav-text">11.函数其他成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-伪数组"><span class="nav-number">3.12.</span> <span class="nav-text">12.伪数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-函数递归"><span class="nav-number">3.13.</span> <span class="nav-text">13.函数递归</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20190912"><span class="nav-number">4.</span> <span class="nav-text">20190912</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-函数作为参数"><span class="nav-number">4.1.</span> <span class="nav-text">1.函数作为参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数作为返回值"><span class="nav-number">4.2.</span> <span class="nav-text">2.函数作为返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作用域的问题"><span class="nav-number">4.3.</span> <span class="nav-text">3.作用域的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-闭包"><span class="nav-number">4.4.</span> <span class="nav-text">4.闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-定时器和闭包"><span class="nav-number">4.5.</span> <span class="nav-text">5.定时器和闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-闭包中的this"><span class="nav-number">4.6.</span> <span class="nav-text">6.闭包中的this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-使用闭包点赞"><span class="nav-number">4.7.</span> <span class="nav-text">7.使用闭包点赞</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -597,6 +624,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
