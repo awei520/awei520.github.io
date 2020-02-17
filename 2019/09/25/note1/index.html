@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.用一行代码实现下面数组以num的值的大小重新排列,并返回一个新的数组123let arr = [&amp;#123; num: 23 &amp;#125;,&amp;#123; num: 100 &amp;#125;, &amp;#123; num: 3 &amp;#125;,&amp;#123; num: 56 &amp;#125;] arr.sort((item1,item2)=&amp;gt;item1.num-item2.num) console.log(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="note1">
+<meta property="og:url" content="http://yoursite.com/2019/09/25/note1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.用一行代码实现下面数组以num的值的大小重新排列,并返回一个新的数组123let arr = [&amp;#123; num: 23 &amp;#125;,&amp;#123; num: 100 &amp;#125;, &amp;#123; num: 3 &amp;#125;,&amp;#123; num: 56 &amp;#125;] arr.sort((item1,item2)=&amp;gt;item1.num-item2.num) console.log(">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-17T12:25:48.580Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="note1">
+<meta name="twitter:description" content="1.用一行代码实现下面数组以num的值的大小重新排列,并返回一个新的数组123let arr = [&amp;#123; num: 23 &amp;#125;,&amp;#123; num: 100 &amp;#125;, &amp;#123; num: 3 &amp;#125;,&amp;#123; num: 56 &amp;#125;] arr.sort((item1,item2)=&amp;gt;item1.num-item2.num) console.log(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/25/note1/">
+
+
+
+
+
+  <title>note1 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/note1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">note1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-25T20:09:22+08:00">
+                2019-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-用一行代码实现下面数组以num的值的大小重新排列-并返回一个新的数组"><a href="#1-用一行代码实现下面数组以num的值的大小重新排列-并返回一个新的数组" class="headerlink" title="1.用一行代码实现下面数组以num的值的大小重新排列,并返回一个新的数组"></a>1.用一行代码实现下面数组以num的值的大小重新排列,并返回一个新的数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&#123; num: 23 &#125;,&#123; num: 100 &#125;, &#123; num: 3 &#125;,&#123; num: 56 &#125;]</span><br><span class="line"> arr.sort((item1,item2)=&gt;item1.num-item2.num)</span><br><span class="line"> console.log(arr)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-对React生命周期函数的理解"><a href="#2-对React生命周期函数的理解" class="headerlink" title="2.对React生命周期函数的理解"></a>2.对React生命周期函数的理解</h2><p><strong>React 16.3+ 之后的生命周期函数：</strong></p>
+<p>· <strong>getDerivedStateFromProps:</strong>  当组件的props和state发生变化的时候会触发该函数。</p>
+<p>· <strong>componentDidMount:</strong> 当组件挂载完毕会执行这个方法(只会执行一次)</p>
+<p>· <strong>shouldComponentUpdate:</strong> 确定组件是否应该更新。 如果不写默认返回true；如果某些状态改变之后，不想要更新组件，那么我们可以在这个方法中返回false。</p>
+<p>· <strong>getSnapshotBeforeUpdate:</strong> 在最新的渲染输出提交给 DOM 前将会立即调用，这对于从 DOM 捕获信息（比如：滚动位置）很有用。</p>
+<p>· <strong>componentDidUpdate:</strong> 组件更新完毕会执行该方法。 如果shouldComponentUpdate()返回false，则不会触发。</p>
+<p>· <strong>componentWillUnmount</strong> 组件卸载的时候回调用该方法。</p>
+<p>其中下面三个方法在React16.3之后被从生命周期钩子函数中移除了。</p>
+<p>· componentWillMount()</p>
+<p>· componentWillReceiveProps()</p>
+<p>· componentWillUpdate()</p>
+<h2 id="3-Redux更新的方法都有什么"><a href="#3-Redux更新的方法都有什么" class="headerlink" title="3.Redux更新的方法都有什么"></a>3.Redux更新的方法都有什么</h2><p>Redux是一种状态管理的技术，多个组件之间共享数据的一种方式</p>
+<p>Redux强调三个基本原则：</p>
+<p>1.唯一数据源 ：唯一数据源指的是应用的状态数据应该只存储在唯一的一个Store上。</p>
+<p>2.保持状态只读 ： 保持状态只读，就是说不能去直接修改状态，要修改Store的状态，必须要通过派发一个action对象完成。</p>
+<p>3.状态的修改只能通过纯函数完成 ：这里所说的纯函数就是把Reducer，Reducer描述了state状态如何修改。</p>
+<h2 id="4-async-await-的串行和并行"><a href="#4-async-await-的串行和并行" class="headerlink" title="4.async / await 的串行和并行"></a>4.async / await 的串行和并行</h2><p>Js中异步处理的方案：</p>
+<p>1.js的回调函数</p>
+<p>2.Promise  then来实现</p>
+<p>3.通过async和await来实现</p>
+<p>Async修饰的方法特点:</p>
+<p>1.只有在async修饰的方法中才可以使用await</p>
+<p>2.async修饰的方法会自动返回一个Promise</p>
+<p>Await特点</p>
+<p>1.await关键字还有可以在async修饰的方法中使用</p>
+<p>2.await后面必须要跟一个Promise</p>
+<p>3.await会将异步函数转换为同步等待</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">async function request1()&#123;</span><br><span class="line">    //request1()方法内部的两个await会串行执行</span><br><span class="line">    let result1 = await axios(&quot;http://localhost:8888/aa&quot;)</span><br><span class="line">    let result2 = await axios(&quot;http://localhost:8888/bb&quot;)</span><br><span class="line">&#125;</span><br><span class="line">async function request2()&#123;</span><br><span class="line">    //request2()方法内部的两个await会串行执行</span><br><span class="line">    let result3 = await axios(&quot;http://localhost:8888/cc&quot;)</span><br><span class="line">    let result4 = await axios(&quot;http://localhost:8888/dd&quot;)</span><br><span class="line">&#125;</span><br><span class="line">//request1()和request2()会并行执行</span><br><span class="line">request1();</span><br><span class="line">request2();</span><br></pre></td></tr></table></figure>
+
+<p>因此async/await的结合使用，可以将原来并行执行的异步任务改为串行执行，从而彻底解决js的回调地狱的问题</p>
+<h2 id="5-css和js是如何阻塞浏览器渲染DOM的-优化的方案"><a href="#5-css和js是如何阻塞浏览器渲染DOM的-优化的方案" class="headerlink" title="5.css和js是如何阻塞浏览器渲染DOM的,优化的方案"></a>5.css和js是如何阻塞浏览器渲染DOM的,优化的方案</h2><p>DOM解析：将页面上的标签、属性、文本档转换成dom对象，构建DOM树<br>CSS解析：将CSS代码解析，构建CSS树<br>dom tree + css tree  = render tree （渲染树）  —&gt;渲染页面</p>
+<p>1.link css不会堵塞DOM解析，但是会堵塞页面渲染<br>2.script会堵塞DOM解析<br>3.如果想script不堵塞dom解析，我们可以给script标签加defer/async属性<br>4.当浏览器遇到script标签，且script没有defer和async属性的时候，会触发页面渲染。如果script标签前面有css资源，会等到css资源加载完毕再执行script脚本</p>
+<p>优化方案：<script>最好放底部，<link>最好放头部，如果头部同时有<script>与<link>的情况下，最好将<script>放在<link>上面</p>
+<p>关于script标签的defer和async：<br>如果script标签没有的defer和async，默认会堵塞dom的解析；如果script标签加上defer和async之后，那么就不会堵塞dom解析了。</p>
+<p>Defer和async的区别：<br>1.执行时机不同：<br>    defer的脚本将在DOM解析完成后、触发 DOMContentLoaded 事件前执行<br>    async的脚本一旦加载完毕，就会执行(不论是在DOM解析阶段还是DOMContentLoaded之前之后，但是一定是在window.load之前执行)<br>2.执行顺序不同：<br>    defer能保证多个脚本按照书写顺序执行<br>    async不能保证多个脚本的执行顺序</p>
+<h2 id="6-animation属性"><a href="#6-animation属性" class="headerlink" title="6.animation属性"></a>6.animation属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*animation动画</span><br><span class="line">            animation-timing-function:动画运动曲线</span><br><span class="line">            animation-name：动画名字</span><br><span class="line">            animation-duration：动画时间</span><br><span class="line">            animation-iteration-count：动画次数  infinite表示无限次</span><br><span class="line">            animation-direction:动画方向   alternate交叉动画</span><br><span class="line"></span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-闭包"><a href="#7-闭包" class="headerlink" title="7.闭包"></a>7.闭包</h2><p>闭包：函数中嵌套函数<br>闭包的特点：<br>1.内部函数可以使用外部函数中声明的变量<br>2.延长外部函数中变量的作用域链<br>3.闭包可能产生内存泄漏的问题</p>
+<h2 id="8-iframe优缺点"><a href="#8-iframe优缺点" class="headerlink" title="8.iframe优缺点"></a>8.iframe优缺点</h2><p><strong>iframe的优点：</strong></p>
+<p>1.iframe能够原封不动的把嵌入的网页展现出来，iframe和主页面是并行加载的</p>
+<p>2.如果有多个网页引用iframe，那么你只需要修改iframe的内容，就可以实现调用的每一个页面内容的更改，方便快捷。</p>
+<p>3.网页如果为了统一风格，头部和版本都是一样的，就可以写成一个页面，用iframe来嵌套，可以增加代码的可重用。</p>
+<p>4.如果遇到加载缓慢的第三方内容如图标和广告，这些问题可以由iframe来解决。</p>
+<p><strong>iframe的缺点：</strong></p>
+<p>1.会产生很多页面，不容易管理。</p>
+<p>2.iframe框架结构有时会让人感到迷惑，如果框架个数多的话，可能会出现上下、左右滚动条，会分散访问者的注意力，用户体验度差。</p>
+<p>3.代码复杂，无法被一些搜索引擎索引到，这一点很关键，现在的搜索引擎爬虫还不能很好的处理iframe中的内容，所以使用iframe会不利于搜索引擎优化。</p>
+<p>4.很多的移动设备（PDA 手机）无法完全显示框架，设备兼容性差。</p>
+<p>5.iframe框架页面会增加服务器的http请求，对于大型网站是不可取的。 分析了这么多，现在基本上都是用Ajax来代替iframe，所以iframe已经渐渐的退出了前端开发。</p>
+<p>6.iframe会堵塞主页面的onload事件</p>
+<h2 id="9-居中div-居中一个浮动元素-让绝对定位的div居中"><a href="#9-居中div-居中一个浮动元素-让绝对定位的div居中" class="headerlink" title="9.居中div,居中一个浮动元素,让绝对定位的div居中"></a>9.居中div,居中一个浮动元素,让绝对定位的div居中</h2><p>水平居中div：</p>
+<ol>
+<li><p>给div设定一个宽度</p>
+</li>
+<li><p>设置div  margin:0 auto;</p>
+<p>居中浮动的div:</p>
+</li>
+<li><p>给div设定一个宽度 500px</p>
+</li>
+<li><p>margin-left:50%; position:relative; left:-250px;</p>
+<p>居中绝对定位的div:</p>
+</li>
+<li><p>position:absolute;top:50%;left:50%;transform:translate(-50%，-50%)</p>
+<p>使用flex布局来居中：</p>
+</li>
+</ol>
+<p>justify-content:center align-items:center</p>
+<h2 id="10-link和import区别"><a href="#10-link和import区别" class="headerlink" title="10.link和import区别"></a>10.<strong>link和import区别</strong></h2><p>link和@import区别：</p>
+<p>- link属于HTML标签，而@import是CSS提供的</p>
+<p>- 页面被加载的时，link会被加载，而@import引用的CSS会等到页面被加载完再加载</p>
+<p>- import只在IE5以上才能识别，而link是HTML标签，无兼容问题</p>
+<p>- link方式的样式的权重 高于@import的权重</p>
+<p>DOM解析：将页面上的标签、属性、文本档转换成dom对象，构建DOM树CSS解析：将CSS代码解析，构建CSS树dom tree + css tree  = render tree （渲染树）  --->渲染页面</p>
+<p>1.link css不会堵塞DOM解析，但是会堵塞页面渲染2.script会堵塞DOM解析3.如果想script不堵塞dom解析，我们可以给script标签加defer/async属性4.当浏览器遇到script标签，且script没有defer和async属性的时候，会触发页面渲染。如果script标签前面有css资源，会等到css资源加载完毕再执行script脚本 </p>
+<p>优化方案：<script>最好放底部，<link>最好放头部，如果头部同时有<script>与<link>的情况下，最好将<script>放在<link>上面</p>
+<p>关于script标签的defer和async：如果script标签没有的defer和async，默认会堵塞dom的解析；如果script标签加上defer和async之后，那么就不会堵塞dom解析了。 Defer和async的区别：1.执行时机不同：    defer的脚本将在DOM解析完成后、触发 DOMContentLoaded 事件前执行    async的脚本一旦加载完毕，就会执行(不论是在DOM解析阶段还是DOMContentLoaded之前之后，但是一定是在window.load之前执行)2.执行顺序不同：    defer能保证多个脚本按照书写顺序执行    async不能保证多个脚本的执行顺序</p>
+<p>~j����</p>
+</script></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/15/first-week/" rel="next" title="first-week">
+                <i class="fa fa-chevron-left"></i> first-week
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-用一行代码实现下面数组以num的值的大小重新排列-并返回一个新的数组"><span class="nav-number">1.</span> <span class="nav-text">1.用一行代码实现下面数组以num的值的大小重新排列,并返回一个新的数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对React生命周期函数的理解"><span class="nav-number">2.</span> <span class="nav-text">2.对React生命周期函数的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Redux更新的方法都有什么"><span class="nav-number">3.</span> <span class="nav-text">3.Redux更新的方法都有什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-async-await-的串行和并行"><span class="nav-number">4.</span> <span class="nav-text">4.async / await 的串行和并行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-css和js是如何阻塞浏览器渲染DOM的-优化的方案"><span class="nav-number">5.</span> <span class="nav-text">5.css和js是如何阻塞浏览器渲染DOM的,优化的方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
