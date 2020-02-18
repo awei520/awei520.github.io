@@ -229,6 +229,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/数组去重/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/18/数组去重/" itemprop="url">note2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-18T19:36:31+08:00">
+                2020-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><h3 id="1-For嵌套for-使用splice去重更改原数组-正向遍历循环"><a href="#1-For嵌套for-使用splice去重更改原数组-正向遍历循环" class="headerlink" title="1.For嵌套for 使用splice去重更改原数组 正向遍历循环"></a>1.For嵌套for 使用splice去重更改原数组 正向遍历循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,1,&apos;true&apos;,&apos;true&apos;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&apos;NaN&apos;,&apos;NaN&apos;, 0, 0, &apos;a&apos;, &apos;a&apos;,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    function distinct (arr) &#123;</span><br><span class="line">        for(let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">            for(let j = i + 1; j &lt; arr.length ; j++) &#123;</span><br><span class="line">                if(arr[i] === arr[j]) &#123;</span><br><span class="line">                    arr.splice(j, 1)</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    distinct(arr)</span><br><span class="line">    console.log(arr) // [1, &quot;true&quot;, true, 15, false, undefined, null, NaN, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]</span><br></pre></td></tr></table></figure>
+
+<p>优点：该方法可以顾虑到重复的 <code>String</code>、<code>Boolean</code>、 <code>Number</code>、<code>undefined</code>、<code>null</code>，返回的是去重后的原数组。</p>
+<p>缺点：不能过滤掉 <code>NaN</code>、<code>Object</code></p>
+<h3 id="2-For嵌套for-使用splice去重更改原数组-逆向遍历循环"><a href="#2-For嵌套for-使用splice去重更改原数组-逆向遍历循环" class="headerlink" title="2.For嵌套for 使用splice去重更改原数组 逆向遍历循环"></a>2.For嵌套for 使用splice去重更改原数组 逆向遍历循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,1,&apos;true&apos;,&apos;true&apos;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&apos;NaN&apos;,&apos;NaN&apos;, 0, 0, &apos;a&apos;, &apos;a&apos;,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    function distinct (arr) &#123;</span><br><span class="line">        for(let i = arr.length; i &gt; 0; i--) &#123;</span><br><span class="line">            for(let j = i - 1; j &gt; -1 ; j--) &#123;</span><br><span class="line">                if(arr[i] === arr[j]) &#123;</span><br><span class="line">                    console.log(arr[j])</span><br><span class="line">                    arr.splice(j, 1)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    distinct(arr)</span><br><span class="line">    console.log(arr) // [1, &quot;true&quot;, true, 15, false, null, NaN, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]</span><br></pre></td></tr></table></figure>
+
+<p>优点：该方法可以顾虑到重复的 <code>String</code>、<code>Boolean</code>、 <code>Number</code>、<code>undefined</code>、`null``，返回的是去重后的原数组。</p>
+<p>缺点：不能过滤掉 <code>NaN</code>、<code>Object</code></p>
+<h3 id="3-includes去重-返回新数组"><a href="#3-includes去重-返回新数组" class="headerlink" title="3.includes去重 返回新数组"></a>3.includes去重 返回新数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,1,&apos;true&apos;,&apos;true&apos;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&apos;NaN&apos;,&apos;NaN&apos;, 0, 0, &apos;a&apos;, &apos;a&apos;,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    function distinct (arr) &#123;</span><br><span class="line">        let newArr = []</span><br><span class="line">        for(let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">            if(!newArr.includes(arr[i])) &#123;</span><br><span class="line">                newArr.push(arr[i])</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        return newArr</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    console.log(distinct(arr)) // [1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]</span><br></pre></td></tr></table></figure>
+
+<p>优点：该方法可以顾虑到重复的 <code>String</code>、<code>Boolean</code>、 <code>Number</code>、<code>undefined</code>、<code>null</code>、<code>NaN</code>，返回的是去重后的新数组。</p>
+<p>缺点：不能过滤掉 <code>Object</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/note1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -635,7 +766,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
