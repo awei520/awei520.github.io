@@ -229,6 +229,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/note2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/19/note2/" itemprop="url">note2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T20:04:17+08:00">
+                2020-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-MVVM"><a href="#1-MVVM" class="headerlink" title="1.MVVM"></a>1.MVVM</h2><h4 id="1-什么是MVVM"><a href="#1-什么是MVVM" class="headerlink" title="(1).什么是MVVM"></a>(1).什么是MVVM</h4><p>MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel。<br>ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回Model<br>View 和 Model 之间的同步工作完全是自动的，无需人为干涉（由viewModel完成）<br>因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
+<h4 id="2-MVVM模式的优点"><a href="#2-MVVM模式的优点" class="headerlink" title="(2).MVVM模式的优点"></a>(2).<strong>MVVM模式的优点</strong></h4><p>1、低耦合：MVVM模式中，数据是独立于UI的，ViewModel只负责处理和提供数据，UI想怎么显示数据都由UI自己决定，ViewModel不涉及任何和UI相关的事，即使控件改变（input换成p）,ViewModel几乎不需要更改任何代码，专注自己的数据处理就可以了<br>2.自动同步数据:ViewModel通过双向数据绑定把View层和Model层连接了起来，View和Model这两者可以自动同步。程序员不需要手动操作DOM, 不需要关注数据状态的同步问题，MVVM 统一管理了复杂的数据状态维护<br>3、可重用性：你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。<br>4、独立开发：开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。<br>5、可测试：ViewModel里面是数据和业务逻辑，View中关注的是UI，这样的做测试是很方便的，完全没有彼此的依赖，不管是UI的单元测试还是业务逻辑的单元测试，都是低耦合的</p>
+<h2 id="2-MVC"><a href="#2-MVC" class="headerlink" title="2.MVC"></a>2.MVC</h2><h4 id="1-什么是MVC"><a href="#1-什么是MVC" class="headerlink" title="(1).什么是MVC"></a>(1).什么是MVC</h4><p>全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。</p>
+<h2 id="3-兼容性问题"><a href="#3-兼容性问题" class="headerlink" title="3.兼容性问题"></a>3.兼容性问题</h2><p><strong>1.IE不支持h5新标签和c3媒体查询的问题</strong></p>
+<p>引入html5shiv.js在IE浏览器下创建h5标签<br>引入respond.js让IE浏览器支持C3的媒体查询</p>
+<p><strong>2.js代码兼容性问题</strong></p>
+<p>根据兼容需求选择技术框架/库(jquery)<br>​<br>var ev = ev || window.event<br>document.documentElement.clientWidth || document.body.clientWidth<br>var target = ev.srcElement||ev.target</p>
+<p><strong>3.css兼容性问题</strong></p>
+<p>A.使用Reset CSS或Normalize.css做样式的重置<br>B.使用autoprefixer添加浏览器前缀<br>C.使用条件注释针对不同的浏览器引入单独的样式表<br>D.使用已经处理好兼容问题的库，比如BootStrap<br>E.渐进增强(progressive enhancement): 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验<br>F.优雅降级 (graceful degradation): Web站点在所有新式浏览器中都能正常工作，然后再针对低版本浏览器进行兼容。<br>G.使用CSS hack技术做样式兼容</p>
+<p>常见的兼容性问题：</p>
+<p>display:inline-block（IE7及以下不支持）<br>需要对低版本IE特殊处理：{display:inline-block;display:inline;zoom:1;}<br>​<br>display:inline-block 什么时候会显示间隙？怎样消除间隙？<br>父元素font-size设置成0，子元素重新设置font-size<br>​<br>display:inline-block滥用容易出现布局方面的问题，尤其在左中右、左右等布局方面的问题尤为突出。因此如果是左右布局的话，尽量都用浮动来代替<br>​<br>z-index在IE7及以下版本的话，有时会发现不是谁z-index设置的越高谁就显示在最上面。碰到这种问题需要设置父元素有相对定位属性元素的z-index。先比较父元素的z-index再比较子元素的<br>​<br>IE6双边距：IE6中，元素向左浮动并且设置了左侧的外边距出现了这样的双边距bug。同理，元素向右浮动并且设置右边距也会出现同样的情况。同一行如果有多个浮动元素，第一个浮动元素会出现这个双边距bug，其它的浮动元素则不会。只需要给浮动元素加上display:inline;这样的CSS属性就可以了。<br>​<br>margin-top，margin-bottom的bug<br>父元素的第一个子元素设置了margin-top,会作用于父元素（值为父元素的margin-top与该margin-top两者中的最大值)，而子元素和父元素的边距则没有发生变化。<br>​<br>超链接访问之后hover样式不出现了，被点击后也不具有active和hover样式。<br>方法：按照顺序写 ：a:link{   }  a:visited{  } a:hover{  } a:active{   }<br>​<br>IE没有办法定义1像素左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08;line-height:1px）<br>​<br>IE5-8不支持opacity<br>方法：<br>.opacity{<br>    opacity:0.4,<br>    filter:alpha(opacity=60);<br>    -ms-filter:”progid:DXImageTransform.Microsoft.Alpha(Opacity=60)”<br>}<br>​<br>IE6不支持PNG透明管背景色，IE6下使用gif图片,png24的图片在ie6浏览器上显示背景色，做成png8的<br>​<br>IE下event对象只有x,y属性，但是没有pagex和pagey属性，火狐只有pagex pagey属性。<br>​<br>谷歌下默认会将小于12px的文本设置按照12px显示，可是通过加入-webkit-text-size-adjust:none;</p>
+<h2 id="4-性能优化的方法"><a href="#4-性能优化的方法" class="headerlink" title="4.性能优化的方法"></a>4.性能优化的方法</h2><p><strong>1.减少http请求数量和体积</strong></p>
+<pre><code>-压缩 css、js 文件
+
+-合并 js、css 文件，减少 http 请求
+
+-使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩
+
+-合理使用http缓存，减少http请求
+
+-使用外部的css和js以减少服务器的压力</code></pre><p><strong>2.css和script的位置</strong></p>
+<pre><code>把 css 样式引入放在&lt;head&gt;标签中，把 &lt;script&gt;资源引入放在&lt;/body&gt;闭合之前。
+
+外链脚本在加载时却常常阻塞其他资源，例如在脚本加载完成之前，它后面的图片、样式以及其他脚本都处于阻塞状态，直到脚本加载完成后才会开始加载。如果将脚本放在比较靠前的位置，则会影响整个页面的加载速度从而影响用户体验。所以说尽可能的将脚本往后挪，减少对并发下载的影响</code></pre><p><strong>3.DOM操作优化</strong></p>
+<pre><code>-要避免在document上直接进行频繁的DOM操作(用innerHTML代替DOM操作)，缓存DOM节点查找的结果
+
+-使用classname代替大量的内联样式修改
+
+-对于复杂的UI元素，设置position为absolute或fixed
+
+-在js动画和css动画之间尽量使用css动画
+
+-适当使用canvas
+
+-使用事件代理
+
+-避免使用eval或Function，每次 eval 或 Function 构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码，这是很消耗资源的操作 
+
+-避免大量的字符串拼接，可以使用数组的join方法</code></pre><p><strong>4.CSS选择符优化</strong></p>
+<pre><code>-避免使用通配符选择器，避免使用后代选择器
+
+-选择器匹配是从右向左匹配的，选择器语句链越短，浏览器的匹配速度越快
+
+-避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作
+
+-搞清楚哪些 CSS 属性会触发重新布局（reflow）、重绘（repaint）。在写样式时，避免触发重新布局的可能 
+
+-减少使用昂贵的属性，所有需要浏览器进行操作或计算的属性相对而言都需要花费更大的代价。box-shadow/border-radius/filter/透明度/:nth-child等
+
+-不要使用@import
+
+-尽量减少css表达式的使用  background-color: expression((new Date()).getHours()%2?&quot;#FFFFFF&quot;: &quot;#000000&quot; );</code></pre><p>//附：重排和重绘的操作</p>
+<p>重绘不一定会重排</p>
+<p>重排一定会重绘</p>
+<p>-重排的操作：</p>
+<pre><code>width    height    padding    margin
+
+display    border-width    border    top
+
+position    font-size    float    text-align
+
+overflow-y    font-weight    overflow    left
+
+font-family    line-height    vertical-align    right
+
+clear    white-space    bottom    min-height
+
+offsetTop  offsetLeft  offsetWidth   offsetHeight
+
+scrollTop   scrollLeft  scrollWidth   scrollHeight
+
+clientTop   clientLeft   clientWidth  clientHeight 
+
+getComputedStyle()    (currentStyle in IE)</code></pre><p> -重绘的操作：​    </p>
+<pre><code>color    border-style    visibility    background
+text-decoration    background-image    background-position    background-repeat
+
+outline-color    outline    outline-style    border-radius
+
+outline-width    box-shadow    background-size</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/数组去重/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -766,7 +964,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
