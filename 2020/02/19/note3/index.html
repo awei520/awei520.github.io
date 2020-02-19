@@ -81,14 +81,14 @@
 
 <meta name="description" content="1.MVVM(1).什么是MVVMMVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel。ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回ModelView 和 Model 之间的同步工作完全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="note2">
-<meta property="og:url" content="http://yoursite.com/2020/02/19/note2/index.html">
+<meta property="og:title" content="note3">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/note3/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.MVVM(1).什么是MVVMMVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel。ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回ModelView 和 Model 之间的同步工作完全">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-19T12:30:12.848Z">
+<meta property="og:updated_time" content="2020-02-19T12:35:36.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="note2">
+<meta name="twitter:title" content="note3">
 <meta name="twitter:description" content="1.MVVM(1).什么是MVVMMVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel。ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回ModelView 和 Model 之间的同步工作完全">
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/02/19/note2/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/19/note3/">
 
 
 
 
 
-  <title>note2 | Hexo</title>
+  <title>note3 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/note2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/note3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">note2</h1>
+          <h1 class="post-title" itemprop="name headline">note3</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T20:04:17+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T20:34:39+08:00">
                 2020-02-19
               </time>
             
@@ -311,74 +311,39 @@
 <p>常见的兼容性问题：</p>
 <p>display:inline-block（IE7及以下不支持）<br>需要对低版本IE特殊处理：{display:inline-block;display:inline;zoom:1;}<br>​<br>display:inline-block 什么时候会显示间隙？怎样消除间隙？<br>父元素font-size设置成0，子元素重新设置font-size<br>​<br>display:inline-block滥用容易出现布局方面的问题，尤其在左中右、左右等布局方面的问题尤为突出。因此如果是左右布局的话，尽量都用浮动来代替<br>​<br>z-index在IE7及以下版本的话，有时会发现不是谁z-index设置的越高谁就显示在最上面。碰到这种问题需要设置父元素有相对定位属性元素的z-index。先比较父元素的z-index再比较子元素的<br>​<br>IE6双边距：IE6中，元素向左浮动并且设置了左侧的外边距出现了这样的双边距bug。同理，元素向右浮动并且设置右边距也会出现同样的情况。同一行如果有多个浮动元素，第一个浮动元素会出现这个双边距bug，其它的浮动元素则不会。只需要给浮动元素加上display:inline;这样的CSS属性就可以了。<br>​<br>margin-top，margin-bottom的bug<br>父元素的第一个子元素设置了margin-top,会作用于父元素（值为父元素的margin-top与该margin-top两者中的最大值)，而子元素和父元素的边距则没有发生变化。<br>​<br>超链接访问之后hover样式不出现了，被点击后也不具有active和hover样式。<br>方法：按照顺序写 ：a:link{   }  a:visited{  } a:hover{  } a:active{   }<br>​<br>IE没有办法定义1像素左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08;line-height:1px）<br>​<br>IE5-8不支持opacity<br>方法：<br>.opacity{<br>    opacity:0.4,<br>    filter:alpha(opacity=60);<br>    -ms-filter:”progid:DXImageTransform.Microsoft.Alpha(Opacity=60)”<br>}<br>​<br>IE6不支持PNG透明管背景色，IE6下使用gif图片,png24的图片在ie6浏览器上显示背景色，做成png8的<br>​<br>IE下event对象只有x,y属性，但是没有pagex和pagey属性，火狐只有pagex pagey属性。<br>​<br>谷歌下默认会将小于12px的文本设置按照12px显示，可是通过加入-webkit-text-size-adjust:none;</p>
 <h2 id="4-性能优化的方法"><a href="#4-性能优化的方法" class="headerlink" title="4.性能优化的方法"></a>4.性能优化的方法</h2><p><strong>1.减少http请求数量和体积</strong></p>
-<pre><code>-压缩 css、js 文件
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-压缩 css、js 文件</span><br><span class="line"></span><br><span class="line">-合并 js、css 文件，减少 http 请求</span><br><span class="line"></span><br><span class="line">-使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩</span><br><span class="line"></span><br><span class="line">-合理使用http缓存，减少http请求</span><br><span class="line"></span><br><span class="line">-使用外部的css和js以减少服务器的压力</span><br></pre></td></tr></table></figure>
 
--合并 js、css 文件，减少 http 请求
 
--使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩
 
--合理使用http缓存，减少http请求
+<p><strong>2.css和script的位置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">把 css 样式引入放在&lt;head&gt;标签中，把 &lt;script&gt;资源引入放在&lt;/body&gt;闭合之前。</span><br><span class="line"></span><br><span class="line">外链脚本在加载时却常常阻塞其他资源，例如在脚本加载完成之前，它后面的图片、样式以及其他脚本都处于阻塞状态，直到脚本加载完成后才会开始加载。如果将脚本放在比较靠前的位置，则会影响整个页面的加载速度从而影响用户体验。所以说尽可能的将脚本往后挪，减少对并发下载的影响</span><br></pre></td></tr></table></figure>
 
--使用外部的css和js以减少服务器的压力</code></pre><p><strong>2.css和script的位置</strong></p>
-<pre><code>把 css 样式引入放在&lt;head&gt;标签中，把 &lt;script&gt;资源引入放在&lt;/body&gt;闭合之前。
 
-外链脚本在加载时却常常阻塞其他资源，例如在脚本加载完成之前，它后面的图片、样式以及其他脚本都处于阻塞状态，直到脚本加载完成后才会开始加载。如果将脚本放在比较靠前的位置，则会影响整个页面的加载速度从而影响用户体验。所以说尽可能的将脚本往后挪，减少对并发下载的影响</code></pre><p><strong>3.DOM操作优化</strong></p>
-<pre><code>-要避免在document上直接进行频繁的DOM操作(用innerHTML代替DOM操作)，缓存DOM节点查找的结果
 
--使用classname代替大量的内联样式修改
+<p><strong>3.DOM操作优化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-要避免在document上直接进行频繁的DOM操作(用innerHTML代替DOM操作)，缓存DOM节点查找的结果</span><br><span class="line"></span><br><span class="line">-使用classname代替大量的内联样式修改</span><br><span class="line"></span><br><span class="line">-对于复杂的UI元素，设置position为absolute或fixed</span><br><span class="line"></span><br><span class="line">-在js动画和css动画之间尽量使用css动画</span><br><span class="line"></span><br><span class="line">-适当使用canvas</span><br><span class="line"></span><br><span class="line">-使用事件代理</span><br><span class="line"></span><br><span class="line">-避免使用eval或Function，每次 eval 或 Function 构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码，这是很消耗资源的操作 </span><br><span class="line"></span><br><span class="line">-避免大量的字符串拼接，可以使用数组的join方法</span><br></pre></td></tr></table></figure>
 
--对于复杂的UI元素，设置position为absolute或fixed
 
--在js动画和css动画之间尽量使用css动画
 
--适当使用canvas
 
--使用事件代理
 
--避免使用eval或Function，每次 eval 或 Function 构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码，这是很消耗资源的操作 
+<p><strong>4.CSS选择符优化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-避免使用通配符选择器，避免使用后代选择器</span><br><span class="line"></span><br><span class="line">-选择器匹配是从右向左匹配的，选择器语句链越短，浏览器的匹配速度越快</span><br><span class="line"></span><br><span class="line">-避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作</span><br><span class="line"></span><br><span class="line">-搞清楚哪些 CSS 属性会触发重新布局（reflow）、重绘（repaint）。在写样式时，避免触发重新布局的可能 </span><br><span class="line"></span><br><span class="line">-减少使用昂贵的属性，所有需要浏览器进行操作或计算的属性相对而言都需要花费更大的代价。box-shadow/border-radius/filter/透明度/:nth-child等</span><br><span class="line"></span><br><span class="line">-不要使用@import</span><br><span class="line"></span><br><span class="line">-尽量减少css表达式的使用  background-color: expression((new Date()).getHours()%2?&quot;#FFFFFF&quot;: &quot;#000000&quot; );</span><br></pre></td></tr></table></figure>
 
--避免大量的字符串拼接，可以使用数组的join方法</code></pre><p><strong>4.CSS选择符优化</strong></p>
-<pre><code>-避免使用通配符选择器，避免使用后代选择器
 
--选择器匹配是从右向左匹配的，选择器语句链越短，浏览器的匹配速度越快
 
--避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作
 
--搞清楚哪些 CSS 属性会触发重新布局（reflow）、重绘（repaint）。在写样式时，避免触发重新布局的可能 
 
--减少使用昂贵的属性，所有需要浏览器进行操作或计算的属性相对而言都需要花费更大的代价。box-shadow/border-radius/filter/透明度/:nth-child等
-
--不要使用@import
-
--尽量减少css表达式的使用  background-color: expression((new Date()).getHours()%2?&quot;#FFFFFF&quot;: &quot;#000000&quot; );</code></pre><p>//附：重排和重绘的操作</p>
+<p>//附：重排和重绘的操作</p>
 <p>重绘不一定会重排</p>
 <p>重排一定会重绘</p>
 <p>-重排的操作：</p>
-<pre><code>width    height    padding    margin
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">width	height	padding	margin</span><br><span class="line"></span><br><span class="line">display	border-width	border	top</span><br><span class="line"></span><br><span class="line">position	font-size	float	text-align</span><br><span class="line"></span><br><span class="line">overflow-y	font-weight	overflow	left</span><br><span class="line"></span><br><span class="line">font-family	line-height	vertical-align	right</span><br><span class="line"></span><br><span class="line">clear	white-space	bottom	min-height</span><br><span class="line"></span><br><span class="line">offsetTop  offsetLeft  offsetWidth   offsetHeight</span><br><span class="line"></span><br><span class="line">scrollTop   scrollLeft  scrollWidth   scrollHeight</span><br><span class="line"></span><br><span class="line">clientTop   clientLeft   clientWidth  clientHeight </span><br><span class="line"></span><br><span class="line">getComputedStyle()    (currentStyle in IE)</span><br></pre></td></tr></table></figure>
 
-display    border-width    border    top
+<p> -重绘的操作：​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">color	border-style	visibility	background</span><br><span class="line">text-decoration	background-image	background-position	background-repeat</span><br><span class="line"></span><br><span class="line">outline-color	outline	outline-style	border-radius</span><br><span class="line"></span><br><span class="line">outline-width	box-shadow	background-size</span><br></pre></td></tr></table></figure>
 
-position    font-size    float    text-align
 
-overflow-y    font-weight    overflow    left
-
-font-family    line-height    vertical-align    right
-
-clear    white-space    bottom    min-height
-
-offsetTop  offsetLeft  offsetWidth   offsetHeight
-
-scrollTop   scrollLeft  scrollWidth   scrollHeight
-
-clientTop   clientLeft   clientWidth  clientHeight 
-
-getComputedStyle()    (currentStyle in IE)</code></pre><p> -重绘的操作：​    </p>
-<pre><code>color    border-style    visibility    background
-text-decoration    background-image    background-position    background-repeat
-
-outline-color    outline    outline-style    border-radius
-
-outline-width    box-shadow    background-size</code></pre>
       
     </div>
     
@@ -402,7 +367,7 @@ outline-width    box-shadow    background-size</code></pre>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/18/数组去重/" rel="next" title="note2">
+              <a href="/2020/02/18/note2/" rel="next" title="note2">
                 <i class="fa fa-chevron-left"></i> note2
               </a>
             
