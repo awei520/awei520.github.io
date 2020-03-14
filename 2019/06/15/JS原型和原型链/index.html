@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      兼容性问题总结 | Awei&#39;s blog
+      JS原型和原型链 | Awei&#39;s blog
     
   </title>
   <meta name="author" content="John Doe">
@@ -96,7 +96,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「兼容性问题总结」
+			「JS原型和原型链」
 		
 	</p>
 
@@ -236,8 +236,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2019/05/07/兼容性问题总结/" itemprop="url">
-		兼容性问题总结
+	<a href="/2019/06/15/JS原型和原型链/" itemprop="url">
+		JS原型和原型链
 	</a>
 
 		</div>
@@ -253,9 +253,9 @@
 
 	Updated on
 
-	<a href="/2019/05/07/兼容性问题总结/" itemprop="url">
-		<time datetime="2019-05-07T03:43:59.000Z" itemprop="dateUpdated">
-	  		2020-03-09
+	<a href="/2019/06/15/JS原型和原型链/" itemprop="url">
+		<time datetime="2019-06-15T02:34:55.000Z" itemprop="dateUpdated">
+	  		2020-03-11
 	  </time>
 	</a> 
 
@@ -273,30 +273,35 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="1-IE不支持h5新标签和c3媒体查询的问题"><a href="#1-IE不支持h5新标签和c3媒体查询的问题" class="headerlink" title="1.IE不支持h5新标签和c3媒体查询的问题"></a>1.IE不支持h5新标签和c3媒体查询的问题</h2><p>引入html5shiv.js在IE浏览器下创建h5标签<br>引入respond.js让IE浏览器支持C3的媒体查询</p>
-<h2 id="2-css兼容性问题"><a href="#2-css兼容性问题" class="headerlink" title="2.css兼容性问题"></a>2.css兼容性问题</h2><p><strong>浏览器CSS兼容前缀</strong></p>
-<p>-o-transform: rotate(7deg);        // Opera<br>-ms-transform: rotate(7deg);       // IE<br>-moz-transform: rotate(7deg);      // Firefox<br>-webkit-transform: rotate(7deg);   // Chrome<br>transform: rotate(7deg);           // 统一标识语句</p>
-<p>A.使用Reset CSS或Normalize.css做样式的重置<br>B.使用autoprefixer添加浏览器前缀<br>C.使用条件注释针对不同的浏览器引入单独的样式表<br>D.使用已经处理好兼容问题的库，比如BootStrap<br>E.渐进增强(progressive enhancement): 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验<br>F.优雅降级 (graceful degradation): Web站点在所有新式浏览器中都能正常工作，然后再针对低版本浏览器进行兼容。<br>G.使用CSS hack技术做样式兼容</p>
-<p><strong>常见的兼容性问题：</strong></p>
-<p>display:inline-block（IE7及以下不支持）<br>需要对低版本IE特殊处理：{display:inline-block;display:inline;zoom:1;}<br>​<br>display:inline-block 什么时候会显示间隙？怎样消除间隙？<br>父元素font-size设置成0，子元素重新设置font-size<br>​<br>display:inline-block滥用容易出现布局方面的问题，尤其在左中右、左右等布局方面的问题尤为突出。因此如果是左右布局的话，尽量都用浮动来代替<br>​<br>z-index在IE7及以下版本的话，有时会发现不是谁z-index设置的越高谁就显示在最上面。碰到这种问题需要设置父元素有相对定位属性元素的z-index。先比较父元素的z-index再比较子元素的<br>​<br>IE6双边距：IE6中，元素向左浮动并且设置了左侧的外边距出现了这样的双边距bug。同理，元素向右浮动并且设置右边距也会出现同样的情况。同一行如果有多个浮动元素，第一个浮动元素会出现这个双边距bug，其它的浮动元素则不会。只需要给浮动元素加上display:inline;这样的CSS属性就可以了。<br>​<br>margin-top，margin-bottom的bug<br>父元素的第一个子元素设置了margin-top,会作用于父元素（值为父元素的margin-top与该margin-top两者中的最大值)，而子元素和父元素的边距则没有发生变化。<br>​<br>超链接访问之后hover样式不出现了，被点击后也不具有active和hover样式。<br>方法：按照顺序写 ： a:link{   }   a:visited{  }  a:hover{  }  a:active{   }<br>​<br>IE没有办法定义1像素左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08;line-height:1px）<br>​<br>IE5-8不支持opacity<br>方法：<br>.opacity{<br>    opacity:0.4,<br>    filter:alpha(opacity=60);<br>    -ms-filter:”progid:DXImageTransform.Microsoft.Alpha(Opacity=60)”<br>}<br>​<br>IE6不支持PNG透明管背景色，IE6下使用gif图片,png24的图片在ie6浏览器上显示背景色，做成png8的<br>​<br>IE下event对象只有x,y属性，但是没有pagex和pagey属性，火狐只有pagex pagey属性。<br>​<br>谷歌下默认会将小于12px的文本设置按照12px显示，可是通过加入-webkit-text-size-adjust:none;</p>
-<h2 id="3-JS兼容性问写法"><a href="#3-JS兼容性问写法" class="headerlink" title="3.JS兼容性问写法"></a>3.JS兼容性问写法</h2><h4 id="1-获取网页宽和高的兼容性问题"><a href="#1-获取网页宽和高的兼容性问题" class="headerlink" title="1. 获取网页宽和高的兼容性问题"></a>1. 获取网页宽和高的兼容性问题</h4><p>var winW = document.body.clientWidth || document.documentElement.clientWidth   // 网页可见区域宽<br>var winH = document.body.clientHeight || document.documentElement.clientHeight // 网页可见区域宽<br>// 以上为不包括边框的宽高，如果是 offsetWidth 或者 offsetHeight 的话包括边框</p>
-<p>var winWW = document.body.scrollWidth || document.documentElement.scrollWidth   // 整个网页的宽<br>var winHH = document.body.scrollHeight || document.documentElement.scrollHeight // 整个网页的高</p>
-<p>var screenH = window.screen.height // 屏幕分辨率的高<br>var screenW = window.screen.width  // 屏幕分辨率的宽<br>var screenX = window.screenLeft    // 浏览器窗口相对于屏幕的x坐标（除了Firefox）<br>var screenXX = window.screenX      // FireFox相对于屏幕的X坐标<br>var screenY = window.screenTop     // 浏览器窗口相对于屏幕的y坐标（除了Firefox）<br>var screenYY = window.screenY      // FireFox相对于屏幕的y坐标</p>
-<h4 id="2-获取滚动条距离的兼容性问题"><a href="#2-获取滚动条距离的兼容性问题" class="headerlink" title="2. 获取滚动条距离的兼容性问题"></a>2. 获取滚动条距离的兼容性问题</h4><p>var scrollTop = document.body.scrollTop || document.documentElement.scrollTop // 网页被卷去的高<br>var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft // 网页左卷的距离</p>
-<h4 id="3-获取行外样式-currentStyle-和-getComputedStyle-的兼容性问题"><a href="#3-获取行外样式-currentStyle-和-getComputedStyle-的兼容性问题" class="headerlink" title="3. 获取行外样式 currentStyle 和 getComputedStyle 的兼容性问题"></a>3. 获取行外样式 currentStyle 和 getComputedStyle 的兼容性问题</h4><p>function getStyle(el, name){<br>    if(el.currentStyle) {<br>        // IE<br>        return el.currentStyle[name]<br>    } else {<br>        // Chrom, Firefox<br>        return getComputedStyle(el, false)[name]<br>    }<br>}</p>
-<h4 id="4-用-“索引”-获取字符串每一项的兼容性问题"><a href="#4-用-“索引”-获取字符串每一项的兼容性问题" class="headerlink" title="4. 用 “索引” 获取字符串每一项的兼容性问题"></a>4. 用 “索引” 获取字符串每一项的兼容性问题</h4><p>var str = ‘abcdefg’</p>
-<p>alert(str[0])  // 低版本的浏览器IE6, 7不兼容</p>
-<p>alert(str.charAt(0))  // 兼容所有浏览器</p>
-<h4 id="5-使用-event-对象时的兼容性问题"><a href="#5-使用-event-对象时的兼容性问题" class="headerlink" title="5. 使用 event 对象时的兼容性问题"></a>5. 使用 event 对象时的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    alert(e.clientX)<br>}</p>
-<h4 id="6-阻止事件冒泡的兼容性问题"><a href="#6-阻止事件冒泡的兼容性问题" class="headerlink" title="6. 阻止事件冒泡的兼容性问题"></a>6. 阻止事件冒泡的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    if (e.stopPropagation) {<br>        e.stopPropagation()    // W3C标准<br>    } else {<br>        e.cancelBubble = true  // IE..<br>    }<br>}</p>
-<h4 id="7-阻止事件默认行为的兼容性问题"><a href="#7-阻止事件默认行为的兼容性问题" class="headerlink" title="7. 阻止事件默认行为的兼容性问题"></a>7. 阻止事件默认行为的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    if (e.preventDefault) {<br>        e.preventDefault()      // W3C标准<br>    } else {<br>        e.returnValue = false   // IE..<br>    }<br>}</p>
-<h4 id="8-获取事件目标对象的兼容性问题"><a href="#8-获取事件目标对象的兼容性问题" class="headerlink" title="8. 获取事件目标对象的兼容性问题"></a>8. 获取事件目标对象的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    var target = e.target || e.srcElement         // 获取 target 的兼容写法，后面的为 IE<br>    var from = e.relatedTarget || e.formElement   // 鼠标来的地方，同样后面的为 IE…<br>    var to = e.relatedTarget || e.toElement       // 鼠标去的地方<br>}</p>
-<h4 id="9-获取键盘按键码的兼容性问题"><a href="#9-获取键盘按键码的兼容性问题" class="headerlink" title="9. 获取键盘按键码的兼容性问题"></a>9. 获取键盘按键码的兼容性问题</h4><p>document.onkeydown = function(ev) {<br>    var e = ev || window.event<br>    var code = e.keyCode || e.which || e.charCode<br>    console.log(code)<br>}</p>
-<h4 id="10-设置监听事件的兼容性问题"><a href="#10-设置监听事件的兼容性问题" class="headerlink" title="10. 设置监听事件的兼容性问题"></a>10. 设置监听事件的兼容性问题</h4><p>// 设置监听事件<br>function addEvent(el, type, fn) {        // 添加事件监听，三个参数分别为 对象、事件类型、事件处理函数，默认为 false<br>    if (el.addEventListener) {<br>        el.addEventListener(type, fn, false)    // 非IE<br>    } else {<br>        el.attachEvent(‘on’ + type, fn)     // IE,这里已经加上on,传参的时候注意不要重复加了<br>    }<br>}<br>// 删除事件监听<br>function removeEvent(el, type, fn) {<br>    if (el.removeEventListener) {<br>        el.removeEventListener(type, fn, false)    // 非IE<br>    } else {<br>        el.detachEvent(‘on’ + type, fn)    // IE,这里已经加上on,传参的时候注意不要重复加了<br>    }<br>}</p>
-<h4 id="11-获取DOM节点的兼容性问题"><a href="#11-获取DOM节点的兼容性问题" class="headerlink" title="11. 获取DOM节点的兼容性问题"></a>11. 获取DOM节点的兼容性问题</h4><p>// DOM节点相关，主要兼容IE 6 7 8</p>
-<p>// 获取下一个兄弟节点<br>function nextnode(el) {<br>    if (el.nextElementSibling) {<br>        return el.nextElementSibling  // 非IE6 7 8 支持<br>    } else{<br>        return el.nextSibling  // IE6 7 8 支持<br>    }<br>}<br>// 获取上一个兄弟节点<br>function prenode(el) {<br>    if (el.previousElementSibling) {<br>        return el.previousElementSibling   // 非IE6 7 8 支持<br>    } else{<br>        return el.previousSibling     // IE6 7 8 支持<br>    }<br>}<br>// 获取第一个子节点<br>function firstnode(el) {<br>    if (el.firstElementChild) {<br>        return el.firstElementChild   // 非IE6 7 8 支持<br>    } else{<br>        return el.firstChild    // IE6 7 8 支持<br>    }<br>}<br>// 获取最后一个子节点<br>function lastnode(el) {<br>    if (el.lastElementChild) {<br>        return el.lastElementChild    // 非IE6 7 8 支持<br>    } else{<br>        return el.lastChild     // IE6 7 8 支持<br>    }<br>}</p>
-<h4 id="12-监听鼠标的滑轮滚动事件的兼容性问题"><a href="#12-监听鼠标的滑轮滚动事件的兼容性问题" class="headerlink" title="12. 监听鼠标的滑轮滚动事件的兼容性问题"></a>12. 监听鼠标的滑轮滚动事件的兼容性问题</h4><p>// 给页面绑定鼠标滑轮滚动事件<br>var scrollFunc = function(e) {<br>    var e = e || window.event<br>    if (e.wheelDelta) {     // 判断浏览器 IE, Chrome滑轮事件<br>           // 当滑轮向上滚动时<br>        if (e.wheelDelta &gt; 0) {<br>            console.log(“滑轮向上滚动”)<br>            console.log(e.wheelDelta)<br>        }<br>        // 当滑轮向下滚动时<br>        if (e.wheelDelta &lt; 0) {<br>            console.log(“滑轮向下滚动”)<br>            console.log(e.wheelDelta)<br>        }<br>    } else if (e.detail) {   // Firefox滑轮事件<br>        // 当滑轮向上滚动时<br>        if (e.detail&gt; 0) {<br>            console.log(“滑轮向上滚动”)<br>            console.log(e.detail)<br>        }<br>        // 当滑轮向下滚动时<br>        if (e.detail &lt; 0) {<br>            console.log(“滑轮向下滚动”)<br>            console.log(e.detail)<br>        }<br>    }<br>}</p>
-<p>// Firefox 使用 DOMMouseScroll 绑定滑轮事件<br>if(document.addEventListener) {<br>    document.addEventListener(‘DOMMouseScroll’, scrollFunc, false)<br>}<br>// W3C标准   IE/Opera/Chrome<br>window.onmousewheel = document.onmousewheel = scrollFunc</p>
+			<h2 id="js的原型和原型链"><a href="#js的原型和原型链" class="headerlink" title="js的原型和原型链"></a>js的原型和原型链</h2><p>构造函数创建对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line">person.name = <span class="string">'Kevin'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// Kevin</span></span><br></pre></td></tr></table></figure>
+
+<p>Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person</p>
+<h4 id="1-prototype"><a href="#1-prototype" class="headerlink" title="1.prototype"></a>1.prototype</h4><p>每个函数都有一个 prototype 属性<br>每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型”继承”属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 虽然写在注释里，但是你要注意：</span></span><br><span class="line"><span class="comment">// prototype是函数才会有的属性</span></span><br><span class="line">Person.prototype.name = <span class="string">'aaa'</span>;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person1.name) <span class="comment">// aaa</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.name) <span class="comment">// aaa</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-48851bf37a08259d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/556/format/webp" alt="img"></p>
+<h4 id="2-proto"><a href="#2-proto" class="headerlink" title="2.proto"></a>2.proto</h4><p>每一个JavaScript对象(除了 null )都具有的一个属性，叫<strong>proto</strong>，这个属性会指向该对象的原型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-e7476a8697e97aab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/567/format/webp" alt="img"></p>
+<h4 id="3-constructor"><a href="#3-constructor" class="headerlink" title="3. constructor"></a>3. constructor</h4><p>每个原型都有一个 constructor 属性指向关联的构造函数 实例原型指向构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-0cac772635e8a128.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/518/format/webp" alt="img"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-实例与原型"><a href="#4-实例与原型" class="headerlink" title="4.实例与原型"></a>4.实例与原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">'Kevin'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line">person.name = <span class="string">'Daisy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// Daisy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// Kevin</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们给实例对象 person 添加了 name 属性，当我们打印 person.name 的时候，结果自然为 Daisy。</p>
+<p>但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.proto，也就是 Person.prototype中查找，幸运的是我们找到了 name 属性，结果为 Kevin。</p>
+<h4 id="5-原型与原型"><a href="#5-原型与原型" class="headerlink" title="5.原型与原型"></a>5.原型与原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">'Kevin'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.name) <span class="comment">// Kevin</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-293b8fe01cf2ef5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/609/format/webp" alt="img"></p>
+<h4 id="6-原型链"><a href="#6-原型链" class="headerlink" title="6.原型链"></a>6.原型链</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-3089c135df71c956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/604/format/webp" alt="img"></p>
+<p>JavaScript 默认并不会<strong>复制</strong>对象的属性，相反，JavaScript 只是在两个对象之间创建一个<strong>关联</strong>，这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，反而觉得<strong>委托</strong>的说法更准确些</p>
 	
 		</div>
 		
@@ -315,10 +320,14 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解" rel="prev">
+			<a href="/2019/07/05/对Promise的理解/" title="ES6Promise" rel="prev">
 				&laquo;Pre post
 			</a>
 		
+		
+			<a href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解" rel="next">
+				Next post&raquo;
+			</a>
 			
 	</span>
 
@@ -382,29 +391,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/06/15/JS原型和原型链/" title="JS原型和原型链">
-								JS原型和原型链			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								六月 15日, 2019				
-							</p>
-							<p class="relate-post-content">
-								js的原型和原型链构造函数创建对象：
-123456function Person() &#123;&#125;var person = new Person();person.name = 'Kevin';console.log(pe...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/06/15/JS原型和原型链/" title="JS原型和原型链">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="JS原型和原型链"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解">
 								对JS事件循环的理解			
 							</a>
@@ -424,6 +410,30 @@ JS为何需要异步
 							<a href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="对JS事件循环的理解"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/07/兼容性问题总结/" title="兼容性问题总结">
+								兼容性问题总结			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 7日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.IE不支持h5新标签和c3媒体查询的问题引入html5shiv.js在IE浏览器下创建h5标签引入respond.js让IE浏览器支持C3的媒体查询
+2.css兼容性问题浏览器CSS兼容前缀
+-o-transform: rotat...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/07/兼容性问题总结/" title="兼容性问题总结">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="兼容性问题总结"/>
 							</a>
 						</div>
 					</li>												
