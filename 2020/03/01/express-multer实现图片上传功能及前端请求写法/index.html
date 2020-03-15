@@ -277,11 +277,11 @@
 <p>FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象可以将form表单元素的name与value进行组合,实现表单数据的序列化,从而介绍表单元素的拼接,提高工作效率。</p>
 <p>FormData的主要用途有两个：</p>
 <p>1、将form表单元素的name与value进行组合，实现表单数据的序列化，从而减少表单元素的拼接，提高工作效率。</p>
-<p>2、异步上传文件</p>
+<p>2、异步上传文件 </p>
 <p>下面有个简单的例子</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过FormData构造函数创建一个空对象</span></span><br><span class="line"><span class="keyword">var</span> formdata=<span class="keyword">new</span> FormData();</span><br><span class="line"><span class="comment">//可以通过append()方法来追加数据</span></span><br><span class="line">formdata.append(<span class="string">"name"</span>,<span class="string">"laotie"</span>);</span><br></pre></td></tr></table></figure>
 
-<p>至于怎么用express搭建后台服务器大家自行百度</p>
+<p>至于怎么用express搭建后台服务器大家自行百度,这里就不多介绍了</p>
 <h4 id="1-multer"><a href="#1-multer" class="headerlink" title="1.multer"></a>1.multer</h4><p>在github文档中它是这样介绍的：</p>
 <p>Multer 是一个 node.js 中间件，用于处理 <code>multipart/form-data</code> 类型的表单数据，它主要用于上传文件。</p>
 <p><strong>注意</strong>: Multer 不会处理任何非 <code>multipart/form-data</code> 类型的表单数据。</p>
@@ -314,7 +314,8 @@
 
 <hr>
 <p>文章作者: <a href="mailto:undefined" target="_blank" rel="noopener">Awei</a></p>
-<p>文章链接: <a href="https://awei520.github.io/2020/03/01/express-multer%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%8A%9F%E8%83%BD%E5%8F%8A%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%86%99%E6%B3%95/" target="_blank" rel="noopener">https://awei520.github.io/2020/03/01/express-multer%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%8A%9F%E8%83%BD%E5%8F%8A%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%86%99%E6%B3%95/</a></p>
+<p>文章链接: </p>
+<p><a href="https://awei520.github.io/2020/03/01/express-multer%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%8A%9F%E8%83%BD%E5%8F%8A%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%86%99%E6%B3%95/" target="_blank" rel="noopener">https://awei520.github.io/2020/03/01/express-multer%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%8A%9F%E8%83%BD%E5%8F%8A%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%86%99%E6%B3%95/</a></p>
 <p>版权声明: 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自<a href="https://awei520.github.io/" target="_blank" rel="noopener">Awei’s blog</a></p>
 	
 		</div>
@@ -334,12 +335,8 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用" rel="next">
+			<a href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -360,22 +357,23 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">
-								MVVM和一些性能的优化			
+							<a class="relate-post-title" href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数">
+								箭头函数和普通函数			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								三月 15日, 2020				
+								十一月 15日, 2019				
 							</p>
 							<p class="relate-post-content">
-								
+								箭头函数与普通函数一、基本语法ES6中允许使用箭头=&gt;来定义箭头函数，具体语法，我们来看一个简单的例子：
+1234567891011// 箭头函数let fun = (name) =&gt; &#123;    // 函数体  ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">				
+							<a href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MVVM和一些性能的优化"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="箭头函数和普通函数"/>
 							</a>
 						</div>
 					</li>												
@@ -391,8 +389,8 @@
 							</p>
 							<p class="relate-post-content">
 								vuex的简单使用1.什么是vuex?官方文档中给出的是：
-Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
-在vue中我们可...
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 
+在vue中我们...
 							</p>
 						</div>
 
@@ -436,8 +434,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 								七月 5日, 2019				
 							</p>
 							<p class="relate-post-content">
-								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。
-1234567891011121314...
+								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。 
+123456789101112131...
 							</p>
 						</div>
 
@@ -484,8 +482,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 							<p class="relate-post-content">
 								JS事件循环1.JS为何设计为单线程js设计为单线程还是跟他的用途有关
 试想一下 如果js设计为多线程 那么同时修改和删除同一个dom 浏览器又该如何执行?
-JS为何需要异步
-1234for (var i=0;i&lt;9999;i+...
+JS为何需要异步 
+1234for (var i=0;i&lt;9999;i...
 							</p>
 						</div>
 
@@ -499,24 +497,47 @@ JS为何需要异步
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/05/07/兼容性问题总结/" title="兼容性问题总结">
+							<a class="relate-post-title" href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">
 								兼容性问题总结			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								五月 7日, 2019				
+								三月 7日, 2019				
 							</p>
 							<p class="relate-post-content">
 								1.IE不支持h5新标签和c3媒体查询的问题引入html5shiv.js在IE浏览器下创建h5标签引入respond.js让IE浏览器支持C3的媒体查询
-2.css兼容性问题浏览器CSS兼容前缀
--o-transform: rotat...
+2.css兼容性问题浏览器CSS兼容前缀 
+-o-transform: rota...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/05/07/兼容性问题总结/" title="兼容性问题总结">				
+							<a href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="兼容性问题总结"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/02/15/一些性能优化的方法/" title="一些性能优化的方法">
+								一些性能优化的方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								性能优化的方法1.减少http请求数量和体积
+123456789-压缩 css、js 文件-合并 js、css 文件，减少 http 请求-使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩-合理使用http缓存，减少...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/02/15/一些性能优化的方法/" title="一些性能优化的方法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="一些性能优化的方法"/>
 							</a>
 						</div>
 					</li>												

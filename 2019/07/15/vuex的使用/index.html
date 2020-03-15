@@ -274,42 +274,42 @@
 
 		<div class="article-content" id="article-content">
 			<h2 id="vuex的简单使用"><a href="#vuex的简单使用" class="headerlink" title="vuex的简单使用"></a>vuex的简单使用</h2><h4 id="1-什么是vuex"><a href="#1-什么是vuex" class="headerlink" title="1.什么是vuex?"></a>1.什么是vuex?</h4><p>官方文档中给出的是：</p>
-<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 </p>
 <p>在vue中我们可以使用vuex来保存我们需要管理的状态值，值一旦被修改，所有引用该值的地方就会自动更新</p>
 <h4 id="2-使用vuex"><a href="#2-使用vuex" class="headerlink" title="2.使用vuex"></a>2.使用vuex</h4><p>我们新建一个vue项目（这里由于我们是讲解vuex，所以对于vue项目的创建我们不会讲解太详细）；在命令行输入 vue init webpack web（使用webpack创建一个项目名为web的项目）；</p>
 <p>项目创建后，然后安装vuex，使用命令：npm install vuex –save</p>
 <p>然后我们执行npm run dev 启动项目</p>
 <p>我们在项目的src目录下新建一个目录store，在该目录下新建一个index.js文件，我们用来创建vuex实例，然后在该文件中引入vue和vuex，创建Vuex.Store实例保存到变量store中，最后使用export default导出store</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex1.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex1.jpg" alt></p>
 <p>然后我们在main.js文件中引入该文件，在文件里面添加 import store from ‘./store’;，再在vue实例全局引入store对象；</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex2.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex2.jpg" alt></p>
 <h5 id="1-State"><a href="#1-State" class="headerlink" title="(1)State"></a>(1)State</h5><p>vuex中的数据源，我们需要保存的数据就保存在这里，可以在页面通过 this.$store.state来获取我们定义的数据；</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex3.jpg" alt></p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex4.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex3.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex4.jpg" alt></p>
 <p>这时候我们页面上就得到了这个count值1</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex5.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex5.jpg" alt></p>
 <h5 id="2-Getters"><a href="#2-Getters" class="headerlink" title="(2)Getters"></a>(2)Getters</h5><p>Getter相当于vue中的computed计算属性，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算，这里我们可以通过定义vuex的Getter来获取，Getters 可以用于监听、state中的值的变化，返回计算后的结果，这里我们修改Hello World.vue文件如下：</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex6.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex6.jpg" alt></p>
 <p>再修改index.js文件如下，其中getters中的getStateCount方法接收一个参数state，这个参数就是我们用来保存数据的那个对象；</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex7.jpg" alt></p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex8.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex7.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex8.jpg" alt></p>
 <h5 id="3-Mutations"><a href="#3-Mutations" class="headerlink" title="(3)Mutations"></a>(3)Mutations</h5><p>数据我们在页面是获取到了，但是如果我们需要修改count值怎么办？如果需要修改store中的值唯一的方法就是提交mutation来修改，我们现在Hello World.vue文件中添加两个按钮，一个加1，一个减1；这里我们点击按钮调用addFun（执行加的方法）和reductionFun（执行减法的方法），然后在里面直接提交mutations中的方法修改值：</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex9.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex9.jpg" alt></p>
 <p>修改index.js文件，添加mutations，在mutations中定义两个函数，用来对count加1和减1，这里定义的两个方法就是上面commit提交的两个方法如下：</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex10.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex10.jpg" alt></p>
 <p>页面上点击+、- 按钮操作数据：</p>
 <p>点击 “+”按钮</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex11.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex11.jpg" alt></p>
 <h5 id="4-Actions"><a href="#4-Actions" class="headerlink" title="(4)Actions"></a>(4)Actions</h5><p>官方并不建议我们这样直接去修改store里面的值，而是让我们去提交一个actions，在actions中提交mutation再去修改状态值，接下来我们修改index.js文件，先定义actions提交mutation的函数：</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex12.jpg" alt></p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex13.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex12.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex13.jpg" alt></p>
 <p>这里我们把commit提交mutations修改为使用dispatch来提交actions；我们点击页面，效果是一样的。</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex14.jpg" alt></p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex15.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex14.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex15.jpg" alt></p>
 <p>我们这里已经实现了一个基本的vuex修改状态值的完整流程，如果我们需要指定加减的数值，那么我们直接传入dispatch中的第二个参数，然后在actions中的对应函数中接受参数在传递给mutations中的函数进行计算：</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex16.jpg" alt></p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex17.jpg" alt></p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Cvuex18.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex16.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex17.jpg" alt></p>
+<p><img src="D:%5CBlog%5Csource%5Cimg%5Cvuex18.jpg" alt></p>
 <p>这个时候我们再去点击“ - ”按钮就会发现不再是减1了，而是减去10了。</p>
 	
 		</div>
@@ -329,7 +329,7 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能" rel="prev">
+			<a href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数" rel="prev">
 				&laquo;Pre post
 			</a>
 		
@@ -355,28 +355,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">
-								MVVM和一些性能的优化			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								三月 15日, 2020				
-							</p>
-							<p class="relate-post-content">
-								
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MVVM和一些性能的优化"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能">
 								express+multer实现图片上传功能			
 							</a>
@@ -394,6 +372,29 @@ FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象
 							<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="express+multer实现图片上传功能"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数">
+								箭头函数和普通函数			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								箭头函数与普通函数一、基本语法ES6中允许使用箭头=&gt;来定义箭头函数，具体语法，我们来看一个简单的例子：
+1234567891011// 箭头函数let fun = (name) =&gt; &#123;    // 函数体  ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="箭头函数和普通函数"/>
 							</a>
 						</div>
 					</li>												
@@ -430,8 +431,8 @@ FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象
 								七月 5日, 2019				
 							</p>
 							<p class="relate-post-content">
-								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。
-1234567891011121314...
+								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。 
+123456789101112131...
 							</p>
 						</div>
 
@@ -478,8 +479,8 @@ FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象
 							<p class="relate-post-content">
 								JS事件循环1.JS为何设计为单线程js设计为单线程还是跟他的用途有关
 试想一下 如果js设计为多线程 那么同时修改和删除同一个dom 浏览器又该如何执行?
-JS为何需要异步
-1234for (var i=0;i&lt;9999;i+...
+JS为何需要异步 
+1234for (var i=0;i&lt;9999;i...
 							</p>
 						</div>
 
@@ -493,24 +494,47 @@ JS为何需要异步
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/05/07/兼容性问题总结/" title="兼容性问题总结">
+							<a class="relate-post-title" href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">
 								兼容性问题总结			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								五月 7日, 2019				
+								三月 7日, 2019				
 							</p>
 							<p class="relate-post-content">
 								1.IE不支持h5新标签和c3媒体查询的问题引入html5shiv.js在IE浏览器下创建h5标签引入respond.js让IE浏览器支持C3的媒体查询
-2.css兼容性问题浏览器CSS兼容前缀
--o-transform: rotat...
+2.css兼容性问题浏览器CSS兼容前缀 
+-o-transform: rota...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/05/07/兼容性问题总结/" title="兼容性问题总结">				
+							<a href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="兼容性问题总结"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/02/15/一些性能优化的方法/" title="一些性能优化的方法">
+								一些性能优化的方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								性能优化的方法1.减少http请求数量和体积
+123456789-压缩 css、js 文件-合并 js、css 文件，减少 http 请求-使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩-合理使用http缓存，减少...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/02/15/一些性能优化的方法/" title="一些性能优化的方法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="一些性能优化的方法"/>
 							</a>
 						</div>
 					</li>												

@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      兼容性问题总结 | Awei&#39;s blog
+      一些性能优化的方法 | Awei&#39;s blog
     
   </title>
   <meta name="author" content="John Doe">
@@ -96,7 +96,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「兼容性问题总结」
+			「一些性能优化的方法」
 		
 	</p>
 
@@ -236,8 +236,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2019/05/07/兼容性问题总结/" itemprop="url">
-		兼容性问题总结
+	<a href="/2019/02/15/一些性能优化的方法/" itemprop="url">
+		一些性能优化的方法
 	</a>
 
 		</div>
@@ -253,9 +253,9 @@
 
 	Updated on
 
-	<a href="/2019/05/07/兼容性问题总结/" itemprop="url">
-		<time datetime="2019-05-07T03:43:59.000Z" itemprop="dateUpdated">
-	  		2020-03-09
+	<a href="/2019/02/15/一些性能优化的方法/" itemprop="url">
+		<time datetime="2019-02-15T10:02:47.000Z" itemprop="dateUpdated">
+	  		2020-03-15
 	  </time>
 	</a> 
 
@@ -273,30 +273,39 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="1-IE不支持h5新标签和c3媒体查询的问题"><a href="#1-IE不支持h5新标签和c3媒体查询的问题" class="headerlink" title="1.IE不支持h5新标签和c3媒体查询的问题"></a>1.IE不支持h5新标签和c3媒体查询的问题</h2><p>引入html5shiv.js在IE浏览器下创建h5标签<br>引入respond.js让IE浏览器支持C3的媒体查询</p>
-<h2 id="2-css兼容性问题"><a href="#2-css兼容性问题" class="headerlink" title="2.css兼容性问题"></a>2.css兼容性问题</h2><p><strong>浏览器CSS兼容前缀</strong></p>
-<p>-o-transform: rotate(7deg);        // Opera<br>-ms-transform: rotate(7deg);       // IE<br>-moz-transform: rotate(7deg);      // Firefox<br>-webkit-transform: rotate(7deg);   // Chrome<br>transform: rotate(7deg);           // 统一标识语句</p>
-<p>A.使用Reset CSS或Normalize.css做样式的重置<br>B.使用autoprefixer添加浏览器前缀<br>C.使用条件注释针对不同的浏览器引入单独的样式表<br>D.使用已经处理好兼容问题的库，比如BootStrap<br>E.渐进增强(progressive enhancement): 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验<br>F.优雅降级 (graceful degradation): Web站点在所有新式浏览器中都能正常工作，然后再针对低版本浏览器进行兼容。<br>G.使用CSS hack技术做样式兼容</p>
-<p><strong>常见的兼容性问题：</strong></p>
-<p>display:inline-block（IE7及以下不支持）<br>需要对低版本IE特殊处理：{display:inline-block;display:inline;zoom:1;}<br>​<br>display:inline-block 什么时候会显示间隙？怎样消除间隙？<br>父元素font-size设置成0，子元素重新设置font-size<br>​<br>display:inline-block滥用容易出现布局方面的问题，尤其在左中右、左右等布局方面的问题尤为突出。因此如果是左右布局的话，尽量都用浮动来代替<br>​<br>z-index在IE7及以下版本的话，有时会发现不是谁z-index设置的越高谁就显示在最上面。碰到这种问题需要设置父元素有相对定位属性元素的z-index。先比较父元素的z-index再比较子元素的<br>​<br>IE6双边距：IE6中，元素向左浮动并且设置了左侧的外边距出现了这样的双边距bug。同理，元素向右浮动并且设置右边距也会出现同样的情况。同一行如果有多个浮动元素，第一个浮动元素会出现这个双边距bug，其它的浮动元素则不会。只需要给浮动元素加上display:inline;这样的CSS属性就可以了。<br>​<br>margin-top，margin-bottom的bug<br>父元素的第一个子元素设置了margin-top,会作用于父元素（值为父元素的margin-top与该margin-top两者中的最大值)，而子元素和父元素的边距则没有发生变化。<br>​<br>超链接访问之后hover样式不出现了，被点击后也不具有active和hover样式。<br>方法：按照顺序写 ： a:link{   }   a:visited{  }  a:hover{  }  a:active{   }<br>​<br>IE没有办法定义1像素左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08;line-height:1px）<br>​<br>IE5-8不支持opacity<br>方法：<br>.opacity{<br>    opacity:0.4,<br>    filter:alpha(opacity=60);<br>    -ms-filter:”progid:DXImageTransform.Microsoft.Alpha(Opacity=60)”<br>}<br>​<br>IE6不支持PNG透明管背景色，IE6下使用gif图片,png24的图片在ie6浏览器上显示背景色，做成png8的<br>​<br>IE下event对象只有x,y属性，但是没有pagex和pagey属性，火狐只有pagex pagey属性。<br>​<br>谷歌下默认会将小于12px的文本设置按照12px显示，可是通过加入-webkit-text-size-adjust:none;</p>
-<h2 id="3-JS兼容性问写法"><a href="#3-JS兼容性问写法" class="headerlink" title="3.JS兼容性问写法"></a>3.JS兼容性问写法</h2><h4 id="1-获取网页宽和高的兼容性问题"><a href="#1-获取网页宽和高的兼容性问题" class="headerlink" title="1. 获取网页宽和高的兼容性问题"></a>1. 获取网页宽和高的兼容性问题</h4><p>var winW = document.body.clientWidth || document.documentElement.clientWidth   // 网页可见区域宽<br>var winH = document.body.clientHeight || document.documentElement.clientHeight // 网页可见区域宽<br>// 以上为不包括边框的宽高，如果是 offsetWidth 或者 offsetHeight 的话包括边框</p>
-<p>var winWW = document.body.scrollWidth || document.documentElement.scrollWidth   // 整个网页的宽<br>var winHH = document.body.scrollHeight || document.documentElement.scrollHeight // 整个网页的高</p>
-<p>var screenH = window.screen.height // 屏幕分辨率的高<br>var screenW = window.screen.width  // 屏幕分辨率的宽<br>var screenX = window.screenLeft    // 浏览器窗口相对于屏幕的x坐标（除了Firefox）<br>var screenXX = window.screenX      // FireFox相对于屏幕的X坐标<br>var screenY = window.screenTop     // 浏览器窗口相对于屏幕的y坐标（除了Firefox）<br>var screenYY = window.screenY      // FireFox相对于屏幕的y坐标</p>
-<h4 id="2-获取滚动条距离的兼容性问题"><a href="#2-获取滚动条距离的兼容性问题" class="headerlink" title="2. 获取滚动条距离的兼容性问题"></a>2. 获取滚动条距离的兼容性问题</h4><p>var scrollTop = document.body.scrollTop || document.documentElement.scrollTop // 网页被卷去的高<br>var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft // 网页左卷的距离</p>
-<h4 id="3-获取行外样式-currentStyle-和-getComputedStyle-的兼容性问题"><a href="#3-获取行外样式-currentStyle-和-getComputedStyle-的兼容性问题" class="headerlink" title="3. 获取行外样式 currentStyle 和 getComputedStyle 的兼容性问题"></a>3. 获取行外样式 currentStyle 和 getComputedStyle 的兼容性问题</h4><p>function getStyle(el, name){<br>    if(el.currentStyle) {<br>        // IE<br>        return el.currentStyle[name]<br>    } else {<br>        // Chrom, Firefox<br>        return getComputedStyle(el, false)[name]<br>    }<br>}</p>
-<h4 id="4-用-“索引”-获取字符串每一项的兼容性问题"><a href="#4-用-“索引”-获取字符串每一项的兼容性问题" class="headerlink" title="4. 用 “索引” 获取字符串每一项的兼容性问题"></a>4. 用 “索引” 获取字符串每一项的兼容性问题</h4><p>var str = ‘abcdefg’</p>
-<p>alert(str[0])  // 低版本的浏览器IE6, 7不兼容</p>
-<p>alert(str.charAt(0))  // 兼容所有浏览器</p>
-<h4 id="5-使用-event-对象时的兼容性问题"><a href="#5-使用-event-对象时的兼容性问题" class="headerlink" title="5. 使用 event 对象时的兼容性问题"></a>5. 使用 event 对象时的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    alert(e.clientX)<br>}</p>
-<h4 id="6-阻止事件冒泡的兼容性问题"><a href="#6-阻止事件冒泡的兼容性问题" class="headerlink" title="6. 阻止事件冒泡的兼容性问题"></a>6. 阻止事件冒泡的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    if (e.stopPropagation) {<br>        e.stopPropagation()    // W3C标准<br>    } else {<br>        e.cancelBubble = true  // IE..<br>    }<br>}</p>
-<h4 id="7-阻止事件默认行为的兼容性问题"><a href="#7-阻止事件默认行为的兼容性问题" class="headerlink" title="7. 阻止事件默认行为的兼容性问题"></a>7. 阻止事件默认行为的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    if (e.preventDefault) {<br>        e.preventDefault()      // W3C标准<br>    } else {<br>        e.returnValue = false   // IE..<br>    }<br>}</p>
-<h4 id="8-获取事件目标对象的兼容性问题"><a href="#8-获取事件目标对象的兼容性问题" class="headerlink" title="8. 获取事件目标对象的兼容性问题"></a>8. 获取事件目标对象的兼容性问题</h4><p>document.oncilck = function(ev) {<br>    var e = ev || window.event<br>    var target = e.target || e.srcElement         // 获取 target 的兼容写法，后面的为 IE<br>    var from = e.relatedTarget || e.formElement   // 鼠标来的地方，同样后面的为 IE…<br>    var to = e.relatedTarget || e.toElement       // 鼠标去的地方<br>}</p>
-<h4 id="9-获取键盘按键码的兼容性问题"><a href="#9-获取键盘按键码的兼容性问题" class="headerlink" title="9. 获取键盘按键码的兼容性问题"></a>9. 获取键盘按键码的兼容性问题</h4><p>document.onkeydown = function(ev) {<br>    var e = ev || window.event<br>    var code = e.keyCode || e.which || e.charCode<br>    console.log(code)<br>}</p>
-<h4 id="10-设置监听事件的兼容性问题"><a href="#10-设置监听事件的兼容性问题" class="headerlink" title="10. 设置监听事件的兼容性问题"></a>10. 设置监听事件的兼容性问题</h4><p>// 设置监听事件<br>function addEvent(el, type, fn) {        // 添加事件监听，三个参数分别为 对象、事件类型、事件处理函数，默认为 false<br>    if (el.addEventListener) {<br>        el.addEventListener(type, fn, false)    // 非IE<br>    } else {<br>        el.attachEvent(‘on’ + type, fn)     // IE,这里已经加上on,传参的时候注意不要重复加了<br>    }<br>}<br>// 删除事件监听<br>function removeEvent(el, type, fn) {<br>    if (el.removeEventListener) {<br>        el.removeEventListener(type, fn, false)    // 非IE<br>    } else {<br>        el.detachEvent(‘on’ + type, fn)    // IE,这里已经加上on,传参的时候注意不要重复加了<br>    }<br>}</p>
-<h4 id="11-获取DOM节点的兼容性问题"><a href="#11-获取DOM节点的兼容性问题" class="headerlink" title="11. 获取DOM节点的兼容性问题"></a>11. 获取DOM节点的兼容性问题</h4><p>// DOM节点相关，主要兼容IE 6 7 8</p>
-<p>// 获取下一个兄弟节点<br>function nextnode(el) {<br>    if (el.nextElementSibling) {<br>        return el.nextElementSibling  // 非IE6 7 8 支持<br>    } else{<br>        return el.nextSibling  // IE6 7 8 支持<br>    }<br>}<br>// 获取上一个兄弟节点<br>function prenode(el) {<br>    if (el.previousElementSibling) {<br>        return el.previousElementSibling   // 非IE6 7 8 支持<br>    } else{<br>        return el.previousSibling     // IE6 7 8 支持<br>    }<br>}<br>// 获取第一个子节点<br>function firstnode(el) {<br>    if (el.firstElementChild) {<br>        return el.firstElementChild   // 非IE6 7 8 支持<br>    } else{<br>        return el.firstChild    // IE6 7 8 支持<br>    }<br>}<br>// 获取最后一个子节点<br>function lastnode(el) {<br>    if (el.lastElementChild) {<br>        return el.lastElementChild    // 非IE6 7 8 支持<br>    } else{<br>        return el.lastChild     // IE6 7 8 支持<br>    }<br>}</p>
-<h4 id="12-监听鼠标的滑轮滚动事件的兼容性问题"><a href="#12-监听鼠标的滑轮滚动事件的兼容性问题" class="headerlink" title="12. 监听鼠标的滑轮滚动事件的兼容性问题"></a>12. 监听鼠标的滑轮滚动事件的兼容性问题</h4><p>// 给页面绑定鼠标滑轮滚动事件<br>var scrollFunc = function(e) {<br>    var e = e || window.event<br>    if (e.wheelDelta) {     // 判断浏览器 IE, Chrome滑轮事件<br>           // 当滑轮向上滚动时<br>        if (e.wheelDelta &gt; 0) {<br>            console.log(“滑轮向上滚动”)<br>            console.log(e.wheelDelta)<br>        }<br>        // 当滑轮向下滚动时<br>        if (e.wheelDelta &lt; 0) {<br>            console.log(“滑轮向下滚动”)<br>            console.log(e.wheelDelta)<br>        }<br>    } else if (e.detail) {   // Firefox滑轮事件<br>        // 当滑轮向上滚动时<br>        if (e.detail&gt; 0) {<br>            console.log(“滑轮向上滚动”)<br>            console.log(e.detail)<br>        }<br>        // 当滑轮向下滚动时<br>        if (e.detail &lt; 0) {<br>            console.log(“滑轮向下滚动”)<br>            console.log(e.detail)<br>        }<br>    }<br>}</p>
-<p>// Firefox 使用 DOMMouseScroll 绑定滑轮事件<br>if(document.addEventListener) {<br>    document.addEventListener(‘DOMMouseScroll’, scrollFunc, false)<br>}<br>// W3C标准   IE/Opera/Chrome<br>window.onmousewheel = document.onmousewheel = scrollFunc</p>
+			<h2 id="性能优化的方法"><a href="#性能优化的方法" class="headerlink" title="性能优化的方法"></a>性能优化的方法</h2><p><strong>1.减少http请求数量和体积</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-压缩 css、js 文件</span><br><span class="line"></span><br><span class="line">-合并 js、css 文件，减少 http 请求</span><br><span class="line"></span><br><span class="line">-使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩</span><br><span class="line"></span><br><span class="line">-合理使用http缓存，减少http请求</span><br><span class="line"></span><br><span class="line">-使用外部的css和js以减少服务器的压力</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2.css和script的位置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">把 css 样式引入放在&lt;head&gt;标签中，把 &lt;script&gt;资源引入放在&lt;/body&gt;闭合之前。</span><br><span class="line"></span><br><span class="line">外链脚本在加载时却常常阻塞其他资源，例如在脚本加载完成之前，它后面的图片、样式以及其他脚本都处于阻塞状态，直到脚本加载完成后才会开始加载。如果将脚本放在比较靠前的位置，则会影响整个页面的加载速度从而影响用户体验。所以说尽可能的将脚本往后挪，减少对并发下载的影响</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>3.DOM操作优化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-要避免在document上直接进行频繁的DOM操作(用innerHTML代替DOM操作)，缓存DOM节点查找的结果</span><br><span class="line"></span><br><span class="line">-使用classname代替大量的内联样式修改</span><br><span class="line"></span><br><span class="line">-对于复杂的UI元素，设置position为absolute或fixed</span><br><span class="line"></span><br><span class="line">-在js动画和css动画之间尽量使用css动画</span><br><span class="line"></span><br><span class="line">-适当使用canvas</span><br><span class="line"></span><br><span class="line">-使用事件代理</span><br><span class="line"></span><br><span class="line">-避免使用eval或Function，每次 eval 或 Function 构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码，这是很消耗资源的操作 </span><br><span class="line"></span><br><span class="line">-避免大量的字符串拼接，可以使用数组的join方法</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>4.CSS选择符优化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-避免使用通配符选择器，避免使用后代选择器</span><br><span class="line"></span><br><span class="line">-选择器匹配是从右向左匹配的，选择器语句链越短，浏览器的匹配速度越快</span><br><span class="line"></span><br><span class="line">-避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作</span><br><span class="line"></span><br><span class="line">-搞清楚哪些 CSS 属性会触发重新布局（reflow）、重绘（repaint）。在写样式时，避免触发重新布局的可能 </span><br><span class="line"></span><br><span class="line">-减少使用昂贵的属性，所有需要浏览器进行操作或计算的属性相对而言都需要花费更大的代价。box-shadow/border-radius/filter/透明度/:nth-child等</span><br><span class="line"></span><br><span class="line">-不要使用@import</span><br><span class="line"></span><br><span class="line">-尽量减少css表达式的使用  background-color: expression((new Date()).getHours()%2?&quot;#FFFFFF&quot;: &quot;#000000&quot; );</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>附：重排和重绘的操作</p>
+<p>重绘不一定会重排</p>
+<p>重排一定会重绘</p>
+<p>-重排的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">width	height	padding	margin</span><br><span class="line"></span><br><span class="line">display	border-width	border	top</span><br><span class="line"></span><br><span class="line">position	font-size	float	text-align</span><br><span class="line"></span><br><span class="line">overflow-y	font-weight	overflow	left</span><br><span class="line"></span><br><span class="line">font-family	line-height	vertical-align	right</span><br><span class="line"></span><br><span class="line">clear	white-space	bottom	min-height</span><br><span class="line"></span><br><span class="line">offsetTop  offsetLeft  offsetWidth   offsetHeight</span><br><span class="line"></span><br><span class="line">scrollTop   scrollLeft  scrollWidth   scrollHeight</span><br><span class="line"></span><br><span class="line">clientTop   clientLeft   clientWidth  clientHeight </span><br><span class="line"></span><br><span class="line">getComputedStyle()    (currentStyle in IE)</span><br></pre></td></tr></table></figure>
+
+<p> -重绘的操作：​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">color	border-style	visibility	background</span><br><span class="line">text-decoration	background-image	background-position	background-repeat</span><br><span class="line"></span><br><span class="line">outline-color	outline	outline-style	border-radius</span><br><span class="line"></span><br><span class="line">outline-width	box-shadow	background-size</span><br></pre></td></tr></table></figure>
+
 	
 		</div>
 		
@@ -315,7 +324,7 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解" rel="prev">
+			<a href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结" rel="prev">
 				&laquo;Pre post
 			</a>
 		
@@ -334,28 +343,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">
-								MVVM和一些性能的优化			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								三月 15日, 2020				
-							</p>
-							<p class="relate-post-content">
-								
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MVVM和一些性能的优化"/>
-							</a>
-						</div>
-					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -382,6 +369,29 @@ FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象
 			
 					<li>
 						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数">
+								箭头函数和普通函数			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								箭头函数与普通函数一、基本语法ES6中允许使用箭头=&gt;来定义箭头函数，具体语法，我们来看一个简单的例子：
+1234567891011// 箭头函数let fun = (name) =&gt; &#123;    // 函数体  ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/15/箭头函数和普通函数/" title="箭头函数和普通函数">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="箭头函数和普通函数"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2019/07/15/vuex的使用/" title="vuex的简单使用">
 								vuex的简单使用			
 							</a>
@@ -391,8 +401,8 @@ FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象
 							</p>
 							<p class="relate-post-content">
 								vuex的简单使用1.什么是vuex?官方文档中给出的是：
-Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
-在vue中我们可...
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 
+在vue中我们...
 							</p>
 						</div>
 
@@ -436,8 +446,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 								七月 5日, 2019				
 							</p>
 							<p class="relate-post-content">
-								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。
-1234567891011121314...
+								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。 
+123456789101112131...
 							</p>
 						</div>
 
@@ -484,8 +494,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 							<p class="relate-post-content">
 								JS事件循环1.JS为何设计为单线程js设计为单线程还是跟他的用途有关
 试想一下 如果js设计为多线程 那么同时修改和删除同一个dom 浏览器又该如何执行?
-JS为何需要异步
-1234for (var i=0;i&lt;9999;i+...
+JS为何需要异步 
+1234for (var i=0;i&lt;9999;i...
 							</p>
 						</div>
 
@@ -493,6 +503,30 @@ JS为何需要异步
 							<a href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="对JS事件循环的理解"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">
+								兼容性问题总结			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 7日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.IE不支持h5新标签和c3媒体查询的问题引入html5shiv.js在IE浏览器下创建h5标签引入respond.js让IE浏览器支持C3的媒体查询
+2.css兼容性问题浏览器CSS兼容前缀 
+-o-transform: rota...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="兼容性问题总结"/>
 							</a>
 						</div>
 					</li>												

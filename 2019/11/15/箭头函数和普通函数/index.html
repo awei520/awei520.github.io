@@ -1,0 +1,852 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      箭头函数和普通函数 | Awei&#39;s blog
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/plugin/jquery/jquery.min.js"></script>
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">Fetching...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「箭头函数和普通函数」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="Catalog"></div>
+			</div>
+		</div>
+
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2019/11/15/箭头函数和普通函数/" itemprop="url">
+		箭头函数和普通函数
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	Updated on
+
+	<a href="/2019/11/15/箭头函数和普通函数/" itemprop="url">
+		<time datetime="2019-11-15T09:50:40.000Z" itemprop="dateUpdated">
+	  		2020-03-15
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h2 id="箭头函数与普通函数"><a href="#箭头函数与普通函数" class="headerlink" title="箭头函数与普通函数"></a>箭头函数与普通函数</h2><h3 id="一、基本语法"><a href="#一、基本语法" class="headerlink" title="一、基本语法"></a>一、基本语法</h3><p>ES6中允许使用箭头=&gt;来定义箭头函数，具体语法，我们来看一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">let</span> fun = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hello <span class="subst">$&#123;name&#125;</span> !`</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hello <span class="subst">$&#123;name&#125;</span> !`</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关于箭头函数的参数：</strong><br><strong>①</strong> 如果箭头函数没有参数，直接写一个空括号即可。<br><strong>②</strong> 如果箭头函数的参数只有一个，也可以省去包裹参数的括号。<br><strong>③</strong> 如果箭头函数有多个参数，将参数依次用逗号(,)分隔，包裹在括号中即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有参数</span></span><br><span class="line"><span class="keyword">let</span> fun1 = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">111</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只有一个参数，可以省去参数括号</span></span><br><span class="line"><span class="keyword">let</span> fun2 = <span class="function"><span class="params">name</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello <span class="subst">$&#123;name&#125;</span> !`</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有多个参数</span></span><br><span class="line"><span class="keyword">let</span> fun3 = <span class="function">(<span class="params">val1, val2, val3</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> [val1, val2, val3];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关于箭头函数的函数体：</strong><br><strong>①</strong> 如果箭头函数的函数体只有一句代码，就是简单返回某个变量或者返回一个简单的JS表达式，可以省去函数体的大括号{ }。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = <span class="function"><span class="params">val</span> =&gt;</span> val;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123; <span class="keyword">return</span> val &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>②</strong> 如果箭头函数的函数体只有一句代码，就是返回一个对象，可以像下面这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用小括号包裹要返回的对象，不报错</span></span><br><span class="line"><span class="keyword">let</span> getTempItem = <span class="function"><span class="params">id</span> =&gt;</span> (&#123; <span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"Temp"</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但绝不能这样写，会报错。</span></span><br><span class="line"><span class="comment">// 因为对象的大括号会被解释为函数体的大括号</span></span><br><span class="line"><span class="keyword">let</span> getTempItem = <span class="function"><span class="params">id</span> =&gt;</span> &#123; <span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"Temp"</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>③</strong> 如果箭头函数的函数体只有一条语句并且不需要返回值（最常见是调用一个函数），可以给这条语句前面加一个void关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let fn = () =&gt; void doesNotReturn();</span><br></pre></td></tr></table></figure>
+
+<p>箭头函数最常见的用处就是简化回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 例子一</span><br><span class="line">// 正常函数写法</span><br><span class="line">[1,2,3].map(function (x) &#123;</span><br><span class="line">  return x * x;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 箭头函数写法</span><br><span class="line">[1,2,3].map(x =&gt; x * x);</span><br><span class="line"></span><br><span class="line">// 例子二</span><br><span class="line">// 正常函数写法</span><br><span class="line">var result = [2, 5, 1, 4, 3].sort(function (a, b) &#123;</span><br><span class="line">  return a - b;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 箭头函数写法</span><br><span class="line">var result = [2, 5, 1, 4, 3].sort((a, b) =&gt; a - b);</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、箭头函数与普通函数的区别"><a href="#二、箭头函数与普通函数的区别" class="headerlink" title="二、箭头函数与普通函数的区别"></a>二、箭头函数与普通函数的区别</h3><h4 id="1、语法更加简洁、清晰"><a href="#1、语法更加简洁、清晰" class="headerlink" title="1、语法更加简洁、清晰"></a>1、语法更加简洁、清晰</h4><p>从上面的基本语法示例中可以看出，箭头函数的定义要比普通函数定义简洁、清晰得多，很快捷。</p>
+<h4 id="2、箭头函数不会创建自己的this（重要）"><a href="#2、箭头函数不会创建自己的this（重要）" class="headerlink" title="2、箭头函数不会创建自己的this（重要）"></a>2、箭头函数不会创建自己的this（重要）</h4><p>我们先来看看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">MDN</a>上对箭头函数this的解释。</p>
+<blockquote>
+<p>箭头函数不会创建自己的this，所以它没有自己的this，它只会从自己的作用域链的上一层继承this。</p>
+</blockquote>
+<p>箭头函数没有自己的this，它会捕获自己在<strong>定义时</strong>（注意，是定义时，不是调用时）所处的<strong>外层执行环境的this</strong>，并继承这个this值。所以，箭头函数中this的指向在它被定义的时候就已经确定了，之后永远不会改变。</p>
+<p>来看个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var id = &apos;Global&apos;;</span><br><span class="line"></span><br><span class="line">function fun1() &#123;</span><br><span class="line">    // setTimeout中使用普通函数</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(this.id);</span><br><span class="line">    &#125;, 2000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fun2() &#123;</span><br><span class="line">    // setTimeout中使用箭头函数</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(this.id);</span><br><span class="line">    &#125;, 2000)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun1.call(&#123;id: &apos;Obj&apos;&#125;);     // &apos;Global&apos;</span><br><span class="line"></span><br><span class="line">fun2.call(&#123;id: &apos;Obj&apos;&#125;);     // &apos;Obj&apos;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子，函数fun1中的setTimeout中使用普通函数，2秒后函数执行时，这时函数其实是在全局作用域执行的，所以this指向Window对象，this.id就指向全局变量id，所以输出’Global’。<br>但是函数fun2中的setTimeout中使用的是箭头函数，这个箭头函数的this在定义时就确定了，它继承了它外层fun2的执行环境中的this，而fun2调用时this被call方法改变到了对象{id: ‘Obj’}中，所以输出’Obj’。</p>
+<p>再来看另一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var id = &apos;GLOBAL&apos;;</span><br><span class="line">var obj = &#123;</span><br><span class="line">  id: &apos;OBJ&apos;,</span><br><span class="line">  a: function()&#123;</span><br><span class="line">    console.log(this.id);</span><br><span class="line">  &#125;,</span><br><span class="line">  b: () =&gt; &#123;</span><br><span class="line">      console.log(this.id);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.a();    // &apos;OBJ&apos;</span><br><span class="line">obj.b();    // &apos;GLOBAL&apos;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子，对象obj的方法a使用普通函数定义的，<strong>普通函数作为对象的方法调用时，this指向它所属的对象</strong>。所以，this.id就是obj.id，所以输出’OBJ’。<br>但是方法b是使用箭头函数定义的，箭头函数中的this实际是继承的它定义时所处的全局执行环境中的this，所以指向Window对象，所以输出’GLOBAL’。（<strong>这里要注意，定义对象的大括号{}是无法形成一个单独的执行环境的，它依旧是处于全局执行环境中！！</strong>）</p>
+<h4 id="3、箭头函数继承而来的this指向永远不变（重要）"><a href="#3、箭头函数继承而来的this指向永远不变（重要）" class="headerlink" title="3、箭头函数继承而来的this指向永远不变（重要）"></a>3、箭头函数继承而来的this指向永远不变（重要）</h4><p>上面的例子，就完全可以说明箭头函数继承而来的this指向永远不变。对象obj的方法b是使用箭头函数定义的，这个函数中的this就<strong>永远指向</strong>它定义时所处的全局执行环境中的this，即便这个函数是作为对象obj的方法调用，this依旧指向Window对象。</p>
+<h4 id="4、-call-apply-bind-无法改变箭头函数中this的指向"><a href="#4、-call-apply-bind-无法改变箭头函数中this的指向" class="headerlink" title="4、.call()/.apply()/.bind()无法改变箭头函数中this的指向"></a>4、.call()/.apply()/.bind()无法改变箭头函数中this的指向</h4><p>.call()/.apply()/.bind()方法可以用来动态修改函数执行时this的指向，但由于箭头函数的this定义时就已经确定且永远不会改变。所以使用这些方法永远也改变不了箭头函数this的指向，虽然这么做代码不会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var id = &apos;Global&apos;;</span><br><span class="line">// 箭头函数定义在全局作用域</span><br><span class="line">let fun1 = () =&gt; &#123;</span><br><span class="line">    console.log(this.id)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fun1();     // &apos;Global&apos;</span><br><span class="line">// this的指向不会改变，永远指向Window对象</span><br><span class="line">fun1.call(&#123;id: &apos;Obj&apos;&#125;);     // &apos;Global&apos;</span><br><span class="line">fun1.apply(&#123;id: &apos;Obj&apos;&#125;);    // &apos;Global&apos;</span><br><span class="line">fun1.bind(&#123;id: &apos;Obj&apos;&#125;)();   // &apos;Global&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、箭头函数不能作为构造函数使用"><a href="#5、箭头函数不能作为构造函数使用" class="headerlink" title="5、箭头函数不能作为构造函数使用"></a>5、箭头函数不能作为构造函数使用</h4><p>我们先了解一下构造函数的new都做了些什么？简单来说，分为四步：<br>① JS内部首先会先生成一个对象；<br>② 再把函数中的this指向该对象；<br>③ 然后执行构造函数中的语句；<br>④ 最终返回该对象实例。</p>
+<p>但是！！因为箭头函数没有自己的this，它的this其实是继承了外层执行环境中的this，且this指向永远不会随在哪里调用、被谁调用而改变，所以箭头函数不能作为构造函数使用，或者说构造函数不能定义成箭头函数，否则用new调用时会报错！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let Fun = (name, age) =&gt; &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">let p = new Fun(&apos;cao&apos;, 24);</span><br></pre></td></tr></table></figure>
+
+<h4 id="6、箭头函数没有自己的arguments"><a href="#6、箭头函数没有自己的arguments" class="headerlink" title="6、箭头函数没有自己的arguments"></a>6、箭头函数没有自己的arguments</h4><p>箭头函数没有自己的arguments对象。在箭头函数中访问arguments实际上获得的是外层局部（函数）执行环境中的值。</p>
+<h4 id="7、箭头函数没有原型prototype"><a href="#7、箭头函数没有原型prototype" class="headerlink" title="7、箭头函数没有原型prototype"></a>7、箭头函数没有原型prototype</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let sayHi = () =&gt; &#123;</span><br><span class="line">    console.log(&apos;Hello World !&apos;)</span><br><span class="line">&#125;;</span><br><span class="line">console.log(sayHi.prototype); // undefined</span><br></pre></td></tr></table></figure>	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">Related post</div>
+					<div>Comment</div>
+					<div>Share</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">To Top</a>
+		
+			<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能" rel="prev">
+				&laquo;Pre post
+			</a>
+		
+		
+			<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能">
+								express+multer实现图片上传功能			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 1日, 2020				
+							</p>
+							<p class="relate-post-content">
+								express+multer实现图片上传功能在正式开始之前我们来先介绍一下FormData：
+FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象可以将form表单元素的...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="express+multer实现图片上传功能"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/07/15/vuex的使用/" title="vuex的简单使用">
+								vuex的简单使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								vuex的简单使用1.什么是vuex?官方文档中给出的是：
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 
+在vue中我们...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vuex的简单使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/07/14/ES7async-await/" title="ES7 async/await">
+								ES7 async/await			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 14日, 2019				
+							</p>
+							<p class="relate-post-content">
+								async/await1.什么是asyncasync是“异步”的意思，async function 声明用于定义一个返回promise对象的异步函数 。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await与a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/07/14/ES7async-await/" title="ES7 async/await">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ES7 async/await"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/07/05/对Promise的理解/" title="ES6 Promise">
+								ES6 Promise			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 5日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Promise1.为什么会用到promise当我们有很多回调的时候，例如这个回调执行完需要去执行下个回调，然后接着再执行下个回调，这样就会造成层层嵌套，代码不清晰，很容易出现“回调地狱”的问题。 
+123456789101112131...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/07/05/对Promise的理解/" title="ES6 Promise">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ES6 Promise"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/15/JS原型和原型链/" title="JS原型和原型链">
+								JS原型和原型链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								js的原型和原型链构造函数创建对象：
+123456function Person() &#123;&#125;var person = new Person();person.name = 'Kevin';console.log(pe...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/15/JS原型和原型链/" title="JS原型和原型链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="JS原型和原型链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解">
+								对JS事件循环的理解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 9日, 2019				
+							</p>
+							<p class="relate-post-content">
+								JS事件循环1.JS为何设计为单线程js设计为单线程还是跟他的用途有关
+试想一下 如果js设计为多线程 那么同时修改和删除同一个dom 浏览器又该如何执行?
+JS为何需要异步 
+1234for (var i=0;i&lt;9999;i...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/09/对JS事件循环的理解/" title="对JS事件循环的理解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="对JS事件循环的理解"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">
+								兼容性问题总结			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 7日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.IE不支持h5新标签和c3媒体查询的问题引入html5shiv.js在IE浏览器下创建h5标签引入respond.js让IE浏览器支持C3的媒体查询
+2.css兼容性问题浏览器CSS兼容前缀 
+-o-transform: rota...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/07/兼容性问题总结/" title="兼容性问题总结">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="兼容性问题总结"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/02/15/一些性能优化的方法/" title="一些性能优化的方法">
+								一些性能优化的方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								性能优化的方法1.减少http请求数量和体积
+123456789-压缩 css、js 文件-合并 js、css 文件，减少 http 请求-使用CSS Sprites图，合并多个CSS图片，合理使用图片压缩-合理使用http缓存，减少...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/02/15/一些性能优化的方法/" title="一些性能优化的方法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="一些性能优化的方法"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
