@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      ES7 async/await | Awei&#39;s blog
+      MVVM和一些性能的优化 | Awei&#39;s blog
     
   </title>
   <meta name="author" content="John Doe">
@@ -96,7 +96,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「ES7 async/await」
+			「MVVM和一些性能的优化」
 		
 	</p>
 
@@ -219,25 +219,14 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="Catalog"></div>
-			</div>
-		</div>
-
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
 	 
 
 <div class="layout-post">
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2019/07/14/ES7async-await/" itemprop="url">
-		ES7 async/await
+	<a href="/2020/03/15/MVVM和一些性能的优化/" itemprop="url">
+		MVVM和一些性能的优化
 	</a>
 
 		</div>
@@ -253,8 +242,8 @@
 
 	Updated on
 
-	<a href="/2019/07/14/ES7async-await/" itemprop="url">
-		<time datetime="2019-07-14T12:15:46.000Z" itemprop="dateUpdated">
+	<a href="/2020/03/15/MVVM和一些性能的优化/" itemprop="url">
+		<time datetime="2020-03-15T03:51:32.000Z" itemprop="dateUpdated">
 	  		2020-03-15
 	  </time>
 	</a> 
@@ -273,24 +262,7 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><h4 id="1-什么是async"><a href="#1-什么是async" class="headerlink" title="1.什么是async"></a>1.什么是async</h4><p>async是“异步”的意思，async function 声明用于定义一个返回promise对象的异步函数<br> 。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await与async是配套使用，即只能在async函数中使用。await得到Promise对象之后就等待Promise接下来的resolve或者reject。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello async'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(asyncFunc())</span><br></pre></td></tr></table></figure>
-
-<p>可以看到如下打印</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Casync1.jpg" alt></p>
-<p>如果async直接返回的是一个return值，那么他会封装成peomise中的resolved。</p>
-<p>那么我们该如何取到里面的value值？这样我们就需要用到promise的then方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello async'</span></span><br><span class="line">&#125;</span><br><span class="line">asyncFun().then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value) <span class="comment">// hello async</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-什么是await"><a href="#2-什么是await" class="headerlink" title="2.什么是await"></a>2.什么是await</h4><p>在我们使用的时候，想要把接口请求回来的数据，渲染到页面，并且要执行下一步操作时，我们肯定会想到用异步处理，但是我们不知道请求接口会花费多少时间，万一还没有返回数据，渲染上去的就是undefined，页面肯定会报错。那这时我们就需要用到await</p>
-<p>首先，await 操作符用于等待一个promise对象。它只能在异步函数async function 中使用。<br> 其次，await是在等待async函数的完成，其获取到的是一个promise的计算结果，即一个真正的实际返回值。</p>
-<h4 id="3-写法"><a href="#3-写法" class="headerlink" title="3.写法"></a>3.写法</h4><p>在平时请求接口的时候我会这样写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> getValue(val) &#123;</span><br><span class="line">    <span class="keyword">let</span> &#123;data&#125; = <span class="keyword">await</span> myaxios(<span class="string">'GET'</span>,url1)<span class="comment">//此处myaxios为个人封装的axios</span></span><br><span class="line">    <span class="keyword">let</span> &#123;msg&#125; = <span class="keyword">await</span> myaxios(<span class="string">'POST'</span>,url2,obj)</span><br><span class="line">    <span class="built_in">console</span>.log(data,msg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-错误处理"><a href="#4-错误处理" class="headerlink" title="4.错误处理"></a>4.错误处理</h4><p>正常：promise正常resolve，那么await返回这个结果<br>异常：但是在reject的情况下会抛出一个错误</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getProcessedData</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> v;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    v = <span class="keyword">await</span> downloadData(url); </span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    v = <span class="keyword">await</span> downloadFallbackData(url);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> processDataInWorker(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
+				
 		</div>
 		
 		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -308,12 +280,8 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/07/05/对Promise的理解/" title="ES6 Promise" rel="next">
+			<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -331,28 +299,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">
-								MVVM和一些性能的优化			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								三月 15日, 2020				
-							</p>
-							<p class="relate-post-content">
-								
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MVVM和一些性能的优化"/>
-							</a>
-						</div>
-					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -397,6 +343,28 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 							<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vuex的简单使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/07/14/ES7async-await/" title="ES7 async/await">
+								ES7 async/await			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 14日, 2019				
+							</p>
+							<p class="relate-post-content">
+								async/await1.什么是asyncasync是“异步”的意思，async function 声明用于定义一个返回promise对象的异步函数 。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await与a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/07/14/ES7async-await/" title="ES7 async/await">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ES7 async/await"/>
 							</a>
 						</div>
 					</li>												

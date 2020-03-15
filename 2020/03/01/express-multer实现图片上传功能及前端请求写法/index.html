@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      ES7 async/await | Awei&#39;s blog
+      express+multer实现图片上传功能 | Awei&#39;s blog
     
   </title>
   <meta name="author" content="John Doe">
@@ -96,7 +96,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「ES7 async/await」
+			「express+multer实现图片上传功能」
 		
 	</p>
 
@@ -236,8 +236,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2019/07/14/ES7async-await/" itemprop="url">
-		ES7 async/await
+	<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" itemprop="url">
+		express+multer实现图片上传功能
 	</a>
 
 		</div>
@@ -253,8 +253,8 @@
 
 	Updated on
 
-	<a href="/2019/07/14/ES7async-await/" itemprop="url">
-		<time datetime="2019-07-14T12:15:46.000Z" itemprop="dateUpdated">
+	<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" itemprop="url">
+		<time datetime="2020-03-01T08:57:54.000Z" itemprop="dateUpdated">
 	  		2020-03-15
 	  </time>
 	</a> 
@@ -273,23 +273,49 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><h4 id="1-什么是async"><a href="#1-什么是async" class="headerlink" title="1.什么是async"></a>1.什么是async</h4><p>async是“异步”的意思，async function 声明用于定义一个返回promise对象的异步函数<br> 。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await与async是配套使用，即只能在async函数中使用。await得到Promise对象之后就等待Promise接下来的resolve或者reject。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello async'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(asyncFunc())</span><br></pre></td></tr></table></figure>
+			<h2 id="express-multer实现图片上传功能"><a href="#express-multer实现图片上传功能" class="headerlink" title="express+multer实现图片上传功能"></a>express+multer实现图片上传功能</h2><p>在正式开始之前我们来先介绍一下FormData：</p>
+<p>FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象可以将form表单元素的name与value进行组合,实现表单数据的序列化,从而介绍表单元素的拼接,提高工作效率。</p>
+<p>FormData的主要用途有两个：</p>
+<p>1、将form表单元素的name与value进行组合，实现表单数据的序列化，从而减少表单元素的拼接，提高工作效率。</p>
+<p>2、异步上传文件</p>
+<p>下面有个简单的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过FormData构造函数创建一个空对象</span></span><br><span class="line"><span class="keyword">var</span> formdata=<span class="keyword">new</span> FormData();</span><br><span class="line"><span class="comment">//可以通过append()方法来追加数据</span></span><br><span class="line">formdata.append(<span class="string">"name"</span>,<span class="string">"laotie"</span>);</span><br></pre></td></tr></table></figure>
 
-<p>可以看到如下打印</p>
-<p><img src="D:%5CBlog%5Cpublic%5Cimg%5Casync1.jpg" alt></p>
-<p>如果async直接返回的是一个return值，那么他会封装成peomise中的resolved。</p>
-<p>那么我们该如何取到里面的value值？这样我们就需要用到promise的then方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello async'</span></span><br><span class="line">&#125;</span><br><span class="line">asyncFun().then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value) <span class="comment">// hello async</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>至于怎么用express搭建后台服务器大家自行百度</p>
+<h4 id="1-multer"><a href="#1-multer" class="headerlink" title="1.multer"></a>1.multer</h4><p>在github文档中它是这样介绍的：</p>
+<p>Multer 是一个 node.js 中间件，用于处理 <code>multipart/form-data</code> 类型的表单数据，它主要用于上传文件。</p>
+<p><strong>注意</strong>: Multer 不会处理任何非 <code>multipart/form-data</code> 类型的表单数据。</p>
+<p><strong>安装</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save multer</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-什么是await"><a href="#2-什么是await" class="headerlink" title="2.什么是await"></a>2.什么是await</h4><p>在我们使用的时候，想要把接口请求回来的数据，渲染到页面，并且要执行下一步操作时，我们肯定会想到用异步处理，但是我们不知道请求接口会花费多少时间，万一还没有返回数据，渲染上去的就是undefined，页面肯定会报错。那这时我们就需要用到await</p>
-<p>首先，await 操作符用于等待一个promise对象。它只能在异步函数async function 中使用。<br> 其次，await是在等待async函数的完成，其获取到的是一个promise的计算结果，即一个真正的实际返回值。</p>
-<h4 id="3-写法"><a href="#3-写法" class="headerlink" title="3.写法"></a>3.写法</h4><p>在平时请求接口的时候我会这样写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> getValue(val) &#123;</span><br><span class="line">    <span class="keyword">let</span> &#123;data&#125; = <span class="keyword">await</span> myaxios(<span class="string">'GET'</span>,url1)<span class="comment">//此处myaxios为个人封装的axios</span></span><br><span class="line">    <span class="keyword">let</span> &#123;msg&#125; = <span class="keyword">await</span> myaxios(<span class="string">'POST'</span>,url2,obj)</span><br><span class="line">    <span class="built_in">console</span>.log(data,msg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>使用</strong></p>
+<p>Multer 会添加一个 <code>body</code> 对象 以及 <code>file</code> 或 <code>files</code> 对象 到 express 的 <code>request</code> 对象中。 <code>body</code> 对象包含表单的文本域信息，<code>file</code> 或 <code>files</code> 对象包含对象表单上传的文件信息。</p>
+<p>基本使用方法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>)</span><br><span class="line"><span class="keyword">var</span> upload = multer(&#123; <span class="attr">dest</span>: <span class="string">'uploads/'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express()</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/profile'</span>, upload.single(<span class="string">'avatar'</span>), <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// req.file 是 `avatar` 文件的信息</span></span><br><span class="line">  <span class="comment">// req.body 将具有文本域数据，如果存在的话</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/photos/upload'</span>, upload.array(<span class="string">'photos'</span>, <span class="number">12</span>), <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// req.files 是 `photos` 文件数组的信息</span></span><br><span class="line">  <span class="comment">// req.body 将具有文本域数据，如果存在的话</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cpUpload = upload.fields([&#123; <span class="attr">name</span>: <span class="string">'avatar'</span>, <span class="attr">maxCount</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'gallery'</span>, <span class="attr">maxCount</span>: <span class="number">8</span> &#125;])</span><br><span class="line">app.post(<span class="string">'/cool-profile'</span>, cpUpload, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// req.files 是一个对象 (String -&gt; Array) 键是文件名，值是文件数组</span></span><br><span class="line">  <span class="comment">//</span></span><br><span class="line">  <span class="comment">// 例如：</span></span><br><span class="line">  <span class="comment">//  req.files['avatar'][0] -&gt; File</span></span><br><span class="line">  <span class="comment">//  req.files['gallery'] -&gt; Array</span></span><br><span class="line">  <span class="comment">//</span></span><br><span class="line">  <span class="comment">// req.body 将具有文本域数据，如果存在的话</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-错误处理"><a href="#4-错误处理" class="headerlink" title="4.错误处理"></a>4.错误处理</h4><p>正常：promise正常resolve，那么await返回这个结果<br>异常：但是在reject的情况下会抛出一个错误</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getProcessedData</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> v;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    v = <span class="keyword">await</span> downloadData(url); </span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    v = <span class="keyword">await</span> downloadFallbackData(url);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> processDataInWorker(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来开始上后台代码：</p>
+<p>第一部分：</p>
+<p><strong>storage</strong></p>
+<p><strong>磁盘存储引擎 (<code>DiskStorage</code>)</strong></p>
+<p>磁盘存储引擎可以让你控制文件的存储。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> multer=<span class="built_in">require</span>(<span class="string">'multer'</span>);</span><br><span class="line"><span class="keyword">const</span> path  = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> storage = multer.diskStorage(&#123;</span><br><span class="line">        destination: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 接收到文件后输出的保存路径（若不存在则需要创建）</span></span><br><span class="line">            cb(<span class="literal">null</span>, path.join(__dirname,<span class="string">'/upload/'</span>));</span><br><span class="line">        &#125;,</span><br><span class="line">        filename: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// ，原始名，比如 151342376785-123.jpg</span></span><br><span class="line">            cb(<span class="literal">null</span>, <span class="built_in">Date</span>.now()+file.originalname);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="keyword">var</span> upload = multer(&#123;<span class="attr">storage</span>: storage &#125;);</span><br></pre></td></tr></table></figure>
 
+<p><code>destination</code> 是用来确定上传的文件应该存储在哪个文件夹中。也可以提供一个 <code>string</code> (例如 <code>&#39;/tmp/uploads&#39;</code>)。如果没有设置 <code>destination</code>，则使用操作系统默认的临时文件夹。</p>
+<p><strong>注意:</strong> 如果你提供的 <code>destination</code> 是一个函数，你需要负责创建文件夹。当提供一个字符串，multer 将确保这个文件夹是你创建的。</p>
+<p><code>filename</code> 用于确定文件夹中的文件名的确定。 如果没有设置 <code>filename</code>，每个文件将设置为一个随机文件名，并且是没有扩展名的。</p>
+<p><strong>注意:</strong> Multer 不会为你添加任何扩展名，你的程序应该返回一个完整的文件名。</p>
+<p>每个函数都传递了请求对象 (<code>req</code>) 和一些关于这个文件的信息 (<code>file</code>)，有助于你的决定。</p>
+<p>注意 <code>req.body</code> 可能还没有完全填充，这取决于向客户端发送字段和文件到服务器的顺序。</p>
+<p>第二部分：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="string">"/api/profile"</span>, upload.array(<span class="string">'file'</span>, <span class="number">3</span>), <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.files)</span><br><span class="line">     <span class="comment">// req.files 是 `file` 文件数组的信息</span></span><br><span class="line">     <span class="comment">// req.body 将具有文本域数据，如果存在的话</span></span><br><span class="line">    <span class="comment">//upload.array()中的数字3为上传图片上限为3张</span></span><br><span class="line">    <span class="keyword">var</span> imgpath=[]</span><br><span class="line">    <span class="comment">//获取文件保存的路径 获取到以upload开头的路径</span></span><br><span class="line">    req.files.forEach(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> savePath = <span class="string">"/upload/"</span>+item.filename</span><br><span class="line">        imgpath.push(savePath)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(imgpath)</span><br><span class="line">    <span class="keyword">let</span> resObj = &#123; <span class="attr">status</span>: <span class="number">0</span>, <span class="attr">message</span>: <span class="string">''</span> &#125;</span><br><span class="line">    resObj.message =imgpath</span><br><span class="line">    res.end(<span class="built_in">JSON</span>.stringify(resObj))<span class="comment">//这里我返回的是图片保存的地址，并且已将保存图片的文件夹设置成静态目录</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-上传图片时前端fetch如何封装"><a href="#2-上传图片时前端fetch如何封装" class="headerlink" title="2.上传图片时前端fetch如何封装"></a>2.上传图片时前端fetch如何封装</h4><p>这里会用到开始说到的FormData</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'whatwg-fetch'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'es6-promise'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//导出上传图片的请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">uploadImage</span>(<span class="params">url,params</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line">      <span class="built_in">console</span>.log(params)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> params)&#123;</span><br><span class="line">        <span class="comment">//console.log(key,params[key])</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">var</span> key1 <span class="keyword">in</span> params[key])&#123;</span><br><span class="line">               formData.append(<span class="string">'file'</span>, params[key][key1]);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> fetch(url, &#123;</span><br><span class="line">        method: <span class="string">'POST'</span>,        </span><br><span class="line">        body: formData,<span class="comment">//注意这里不要设置headers，浏览器会自动生成headers，如果设置会导致后台接收不到图片</span></span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">response</span>) =&gt;</span> response.json())</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>文章作者: <a href="mailto:undefined" target="_blank" rel="noopener">Awei</a></p>
+<p>文章链接: </p>
+<p>版权声明: 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自<a href="https://awei520.github.io/" target="_blank" rel="noopener">Awei’s blog</a></p>
 	
 		</div>
 		
@@ -308,12 +334,12 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用" rel="prev">
+			<a href="/2020/03/15/MVVM和一些性能的优化/" title="MVVM和一些性能的优化" rel="prev">
 				&laquo;Pre post
 			</a>
 		
 		
-			<a href="/2019/07/05/对Promise的理解/" title="ES6 Promise" rel="next">
+			<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -356,29 +382,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能">
-								express+multer实现图片上传功能			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								三月 1日, 2020				
-							</p>
-							<p class="relate-post-content">
-								express+multer实现图片上传功能在正式开始之前我们来先介绍一下FormData：
-FormData是ajax2.0(XMLHttpRequest Level2)新提出的接口,利用FormData对象可以将form表单元素的...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/03/01/express-multer实现图片上传功能及前端请求写法/" title="express+multer实现图片上传功能">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="express+multer实现图片上传功能"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2019/07/15/vuex的使用/" title="vuex的简单使用">
 								vuex的简单使用			
 							</a>
@@ -397,6 +400,28 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 							<a href="/2019/07/15/vuex的使用/" title="vuex的简单使用">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vuex的简单使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/07/14/ES7async-await/" title="ES7 async/await">
+								ES7 async/await			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 14日, 2019				
+							</p>
+							<p class="relate-post-content">
+								async/await1.什么是asyncasync是“异步”的意思，async function 声明用于定义一个返回promise对象的异步函数 。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await与a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/07/14/ES7async-await/" title="ES7 async/await">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ES7 async/await"/>
 							</a>
 						</div>
 					</li>												
